@@ -5,4 +5,9 @@
 
 #ui-helpers-container{
     background-color: lightblue;
+    height: 100%;
+}
+
+.ui-helpers-list{
+    list-style-type: circle;
 }
