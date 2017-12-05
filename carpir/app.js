@@ -27,3 +27,17 @@ var createHelper = function () {
     ID_COUNTER++;
     return helperObj;
 }
+
+
+/**
+ * GAME SETTINGS 
+ */
+//TODO: move this to a function inside a GAME Object
+function RegisterClick(qtd) 
+{
+    console.log("Recebey: " + qtd);
+}
+
+//TODO: move this for a config function inside a GAME Object
+var playArea = document.getElementById(__config.ui_play_area);
+playArea.addEventListener('click', function(){RegisterClick(1)});
