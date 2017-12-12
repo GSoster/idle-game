@@ -2,6 +2,7 @@
 
 // Globals
 var player = {
+    level: 0,
     resources: {
         coins: 0,
         maxCoins: 0
@@ -21,6 +22,7 @@ var createHelper = function (name, description, buyPrice, productionValue) {
         canEvolve: false,
         needItem: false,
         itemNeeded: [],
+        requiredLevel: 0,
         onItemBought: function () {console.error(new Error("Function not implemented"));},
         onItemSold: function () {console.error(new Error("Function not implemented"));},
     };
@@ -68,3 +70,17 @@ function InitHelpers()
     helpersList.push(stringTrimmer);
     helpersList.push(lawnMower);
 }
+
+function UIUpdateHelpersList() 
+{
+    var ui_helpers_List = document.getElementById(__config.ui_helpers_list);    
+    for ( var i = 0; i < helpersList.length; i++ )
+    {
+        var ui_helper_element = document.createElement('li');
+        ui_helper_element.innerHTML = helpersList[i].name;
+        ui_helpers_List.appendChild(ui_helper_element);
+    }
+}
+
+InitHelpers();
+UIUpdateHelpersList();
