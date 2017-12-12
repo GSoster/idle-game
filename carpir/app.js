@@ -82,5 +82,7 @@ function UIUpdateHelpersList()
     }
 }
 
+//test only
 InitHelpers();
 UIUpdateHelpersList();
+// /test only
