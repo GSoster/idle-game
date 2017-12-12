@@ -61,5 +61,10 @@ playArea.addEventListener('click', function(){
 
 function InitHelpers()
 {
-    //var hoe = createHelper();
+    var hoe = createHelper("hoe", "A hoe that can be used to cut grass", 100, 1);    
+    var stringTrimmer = createHelper("string trimmer", "a simple string trimmer.", 400, 2);
+    var lawnMower = createHelper("lawn mower", "A simple eletric lawn mower", 600, 3);
+    helpersList.push(hoe);
+    helpersList.push(stringTrimmer);
+    helpersList.push(lawnMower);
 }
