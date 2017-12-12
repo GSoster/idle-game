@@ -33,11 +33,27 @@ var createHelper = function () {
  * GAME SETTINGS 
  */
 //TODO: move this to a function inside a GAME Object
-function RegisterClick(qtd) 
+
+
+function UpdateCoinsCount(qtd) 
 {
-    console.log("Recebey: " + qtd);
+    player.resources.maxCoins += qtd;
+    player.resources.coins += qtd;    
+}
+
+/**
+ * Updates the interface with the current quantity of coins and
+ * max coins.
+ */
+function UIUpdateCoinsCount() 
+{
+    document.getElementById(__config.ui_max_coins).innerText = player.resources.maxCoins;
+    document.getElementById(__config.ui_coins).innerText = player.resources.coins;    
 }
 
 //TODO: move this for a config function inside a GAME Object
 var playArea = document.getElementById(__config.ui_play_area);
-playArea.addEventListener('click', function(){RegisterClick(1)});
+playArea.addEventListener('click', function(){
+    UpdateCoinsCount(1);
+    UIUpdateCoinsCount();
+});
