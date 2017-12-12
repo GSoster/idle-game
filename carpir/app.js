@@ -9,15 +9,15 @@ var player = {
 };
 var helpersList = [];
 var ID_COUNTER = 0;// static var used to increment the id on 
-var createHelper = function () {
+var createHelper = function (name, description, buyPrice, productionValue) {
     var helperObj = {
         id: ID_COUNTER,
-        name: "unamed",
-        description: "",
-        buyPrice: 0,
+        name: name || "unamed",
+        description: description || "",
+        buyPrice: buyPrice || 0,
         sellPrice: 0,
-        productionValue: 0,
-        produceRate: 0,
+        productionValue: productionValue || 0,
+        produceRate: 1,
         canEvolve: false,
         needItem: false,
         itemNeeded: [],
@@ -57,3 +57,9 @@ playArea.addEventListener('click', function(){
     UpdateCoinsCount(1);
     UIUpdateCoinsCount();
 });
+
+
+function InitHelpers()
+{
+    //var hoe = createHelper();
+}
