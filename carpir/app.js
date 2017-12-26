@@ -82,7 +82,15 @@ function UIUpdateHelpersList()
     }
 }
 
+function ApplyCustomSettings()
+{
+    document.getElementById(__config.ui_resource_name).innerText = __custom_settings.resource_name;
+    document.getElementById(__config.ui_max_resource_name).innerText = __custom_settings.max_resource_name;
+    document.getElementById(__config.ui_helpers_list_name).innerText = __custom_settings.helpers_list_name;    
+}
+
 //test only
 InitHelpers();
 UIUpdateHelpersList();
+ApplyCustomSettings();
 // /test only

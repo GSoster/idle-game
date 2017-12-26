@@ -15,19 +15,19 @@ const __config =
     ui_coins: "ui-coins", //display the current number of resource (int value)
     ui_resource_name: "ui-resource-name", //display the resource name (eg.: coins)
     ui_max_resource_name: "ui-max-resource-name", //display the max resource name (eg.: max coins)
-
+    ui_helpers_list_name: "ui-helpers-list-name", //display the title on top of helpers list
 };
 
 /**
- * custom config holds information related to the specific game.
- * TODO: This should be moved to a GAME folder or something similar.
- * Observation: ALL strings here (values) will be capitalized.
+ * custom settings holds information related to the specific game. 
+ * this configurations should be changed by the developer of the game
+ * TODO: This should be moved to a GAME folder or something similar. 
  */
-const __custom_config = 
+const __custom_settings = 
 {
-    resource_name: "coins",
-    max_resource_name: "max coins",
-    helpers_list_name: "helpers"
+    resource_name: "Coins",
+    max_resource_name: "Max Coins",
+    helpers_list_name: "111Helpers"
 }
 
 
