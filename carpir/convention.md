@@ -24,3 +24,10 @@ function ApplySettings()
 
 # Files  
 **fw/** this folder holds files related to the tiny framework that powers the idle game.  
+    **/assets** bootstrap, jquery, images and css related to the framework.  
+    **/config** configuration related to ui, save, etc.  
+    **app.js** GameRunner, file that gets info from other files and make all the magic happen.
+**game/**  
+    **/assets** images and css related to the specific game.  
+    **/settings** custom settings for the game
+    
