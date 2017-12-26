@@ -22,7 +22,8 @@ var createHelper = function (name, description, buyPrice, productionValue) {
         canEvolve: false,
         needItem: false,
         itemNeeded: [],
-        requiredLevel: 0,
+        requiredLevel: 0, //required player's level to unlock this specific helper
+        unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
         onItemBought: function () {console.error(new Error("Function not implemented"));},
         onItemSold: function () {console.error(new Error("Function not implemented"));},
     };
@@ -82,6 +83,9 @@ function UIUpdateHelpersList()
     }
 }
 
+/**
+ * Custom settings are defined by the game developer.
+ */
 function ApplyCustomSettings()
 {
     document.getElementById(__config.ui_resource_name).innerText = __custom_settings.resource_name;

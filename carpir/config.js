@@ -27,7 +27,7 @@ const __custom_settings =
 {
     resource_name: "Coins",
     max_resource_name: "Max Coins",
-    helpers_list_name: "111Helpers"
+    helpers_list_name: "Helpers"
 }
 
 
