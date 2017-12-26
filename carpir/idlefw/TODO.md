@@ -1,3 +1,7 @@
+# TODO
+
+This document keeps track of what must be done and in which order.
+
 [x] Player click to play-area should count clicks and increment coins
 [ ] Load sample helpers to screen
 [ ] Save/Load current status to localstorage

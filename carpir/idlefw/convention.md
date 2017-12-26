@@ -16,7 +16,7 @@ eg.: ui_item_list
 
 **Variables** and **constants**  Variables and constants must be all lowercase, they should use the underline symbol as separator and use *ui_* case are related to HTML elements.
 
-## Functions
+### Functions
 
 **Functions** Functions should have all its initials uppercase and its curly brackets starting in the next line
 eg.:
