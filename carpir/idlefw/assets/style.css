@@ -1,6 +1,7 @@
 #ui-resources-bar{
     background-color: lightblue;
     padding-left: 23px;
+    /*display: inline-block;*/    
 }
 
 #ui-helpers-container{
