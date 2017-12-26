@@ -15,6 +15,17 @@
     height: 100%;
 }
 
-.ui-helpers-list{
-    list-style-type: circle;
+/*
+* HELPERS
+*/
+
+#ui-helpers-list{
+    border: solid 1px red;    
+    list-style-type: circle;    
+}
+
+.ui-helper-list-element{
+    border: dashed 1px black;
+    margin: 3px;
+    border-collapse: collapse;    
 }

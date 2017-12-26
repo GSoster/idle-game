@@ -74,14 +74,35 @@ function InitHelpers()
 
 function UIUpdateHelpersList() 
 {
-    var ui_helpers_List = document.getElementById(__config.ui_helpers_list);    
-    for ( var i = 0; i < helpersList.length; i++ )
-    {
-        var ui_helper_element = document.createElement('li');
-        ui_helper_element.innerHTML = helpersList[i].name;
-        ui_helpers_List.appendChild(ui_helper_element);
-    }
+    if (helpersList.length < 1)
+        return;
+    var ui_helpers_List = document.getElementById(__config.ui_helpers_list);
+    helpersList.forEach(element => {ui_helpers_List.appendChild(CreateHelperListElement(element));});
 }
+
+
+function CreateHelperListElement(helperElement) 
+{   /* visual */
+    var ui_helper_element = document.createElement("li");
+    ui_helper_element.classList += "ui-helper-list-element";    
+    var ui_helper_name = document.createElement("span");
+    ui_helper_name.style.fontWeight = "900";
+    ui_helper_name.style.display = "block";
+    ui_helper_name.innerText = helperElement.name
+    var ui_helper_info = document.createElement("span");
+    ui_helper_info.style.fontSize = '13px';
+    ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
+    ui_helper_info.innerText += " Current Quantity: 0";
+    ui_helper_info.innerText += " Production: " + helperElement.productionValue;
+    ui_helper_info.innerText += "Total Production: 0";
+    ui_helper_element.appendChild(ui_helper_name);
+    ui_helper_element.appendChild(ui_helper_info);
+    //ui_helper_element.innerHTML = ;
+    /* logic */
+    ui_helper_element.id = "helper-" + helperElement.id;
+    return ui_helper_element;
+}
+
 
 /**
  * Custom settings are defined by the game developer.
