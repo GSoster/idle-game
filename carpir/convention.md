@@ -20,3 +20,7 @@ function ApplySettings()
 **Spaces** 
 
 **Parentheses**
+
+
+# Files  
+**fw/** this folder holds files related to the tiny framework that powers the idle game.  

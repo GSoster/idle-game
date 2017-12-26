@@ -4,6 +4,7 @@
  * This file contains configuration information that should be able to be customized 
  * to allow different templates to work without code rewriting.
  * Fields that start with UI are related to HTML elements.
+ * TODO: this should be moved to a Framework folder or something similiar.
  */
 
 const __config = 
@@ -15,7 +16,14 @@ const __config =
 
 };
 
+/**
+ * custom config holds information related to the specific game.
+ * TODO: This should be moved to a GAME folder or something similar.
+ */
+const __custom_config = 
+{
 
+}
 
 
 
