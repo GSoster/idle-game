@@ -14,12 +14,20 @@
 function OnItemBought(event)
 {
     //calls the function OnItemBought from the target item.
-    //ex.: bought a helper with ID = 2. Calls the function OnItemBought from helper#2
+    //ex.: bought a helper with ID = 2. Calls the function OnItemBought from helper#2    
+    alert("Chegou!");
+    console.log(event.detail);
+    event.detail.OnItemBought();
 }
 
 function OnLevelUp(event)
 {
 
+}
+
+function OnClick()
+{
+    console.log("clicou");
 }
 
 // ########### Self Invoking function to add eventListeners 

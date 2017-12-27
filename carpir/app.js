@@ -24,8 +24,8 @@ var createHelper = function (name, description, buyPrice, productionValue) {
         itemNeeded: [],
         requiredLevel: 0, //required player's level to unlock this specific helper
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
-        onItemBought: function () {console.error(new Error("Function not implemented"));},
-        onItemSold: function () {console.error(new Error("Function not implemented"));},
+        OnItemBought: function () {console.error(new Error("Function not implemented"));},
+        OnItemSold: function () {console.error(new Error("Function not implemented"));},
     };
     ID_COUNTER++;
     return helperObj;
@@ -82,14 +82,14 @@ function UIUpdateHelpersList()
     if (helpersList.length < 1)
         return;
     var ui_helpers_List = document.getElementById(__config.ui_helpers_list);
-    helpersList.forEach(element => {ui_helpers_List.appendChild(CreateHelperListElement(element));});
+    helpersList.forEach(element => {ui_helpers_List.appendChild(CreateHelperUIListElement(element));});
 }
 
 /**
  * This function clearly should be split in many others.
  * @param {*} helperElement 
  */
-function CreateHelperListElement(helperElement) 
+function CreateHelperUIListElement(helperElement) 
 {   /* visual */
     var ui_helper_element = document.createElement("li");
     ui_helper_element.classList += "ui-helper-list-element";    
@@ -108,9 +108,23 @@ function CreateHelperListElement(helperElement)
     //ui_helper_element.innerHTML = ;
     /* logic */
     ui_helper_element.id = "helper-" + helperElement.id;
+    var ui_helper_btn_buy = document.createElement('a');
+    ui_helper_btn_buy.href = "#";
+    ui_helper_btn_buy.appendChild(document.createTextNode("Buy"));
+    ui_helper_btn_buy.id = "buy-helper-" + helperElement.id;
+    ui_helper_btn_buy.onclick = function () {
+        var onItemBoughtEvent = new CustomEvent('OnItemBought', { detail: helperElement });
+        document.dispatchEvent(onItemBoughtEvent);
+    };
+    ui_helper_element.appendChild(ui_helper_btn_buy);
+
     return ui_helper_element;
 }
 
+
+function CreateHelperLogicElement(helperElement){
+    
+}
 
 /**
  * Custom settings are defined by the game developer. 
