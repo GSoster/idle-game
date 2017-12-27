@@ -6,7 +6,8 @@ var player = {
     resources: {
         coins: 0,
         maxCoins: 0
-    },    
+    },
+    helpers: []
 };
 var helpersList = [];
 var ID_COUNTER = 0;// static var used to increment the id on 
@@ -22,17 +23,21 @@ var createHelper = function (name, description, buyPrice, productionValue) {
         canEvolve: false,
         needItem: false,
         itemNeeded: [],
+        level: 1,
+        nextLevelPrice: 100,        
         requiredLevel: 0, //required player's level to unlock this specific helper
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
         OnItemBought: function () {            
             if (player.resources.coins >= this.buyPrice){
                 player.resources.coins -= this.buyPrice;
+                player.helpers.push(this);
             }
             else 
                 console.error(new Error("Function not implemented"));
                 
         },
         OnItemSold: function () {console.error(new Error("Function not implemented"));},
+        OnLevelUp: function () {console.error(new Error("Function not implemented"));}
     };
     ID_COUNTER++;
     return helperObj;
