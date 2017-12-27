@@ -14,7 +14,7 @@ eg.: ui_item_list
 
 ### Variables  and Constants
 
-**Variables** and **constants**  Variables and constants must be all lowercase, they should use the underline symbol as separator and use *ui_* case are related to HTML elements.
+**Variables** and **constants**  Variables and constants must be all lowercase (not even Event handler functions are  allowed to start with lower case.), they should use the underline symbol as separator and use *ui_* case are related to HTML elements.
 
 ### Functions
 
