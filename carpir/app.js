@@ -7,7 +7,9 @@ var player = {
         coins: 0,
         maxCoins: 0
     },
-    helpers: []
+    helpers: [],
+    OnLevelUp: function () {console.error(new Error("Function not implemented"));},
+    /*resourceGeneratedPerClick: 1,*/
 };
 var helpersList = [];
 var ID_COUNTER = 0;// static var used to increment the id on 
@@ -74,6 +76,15 @@ playArea.addEventListener('click', function(){
 });
 
 
+/**
+ * Player
+ */
+
+function UIUpdatePlayerInfo()
+{
+    var ui_player_level = document.getElementById('ui-player-level');
+    ui_player_level.innerText = player.level;
+}
 
 /**
  * ################# HELPERS STUFF, Should be split into another file.
@@ -151,6 +162,8 @@ function ApplyCustomSettings()
 
 //test only
 InitHelpers();
-UIUpdateHelpersList();
 ApplyCustomSettings();
+//To run on every interaction/based on timer:
+UIUpdateHelpersList();
+UIUpdatePlayerInfo()
 // /test only
