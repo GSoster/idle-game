@@ -15,8 +15,6 @@ function OnItemBought(event)
 {
     //calls the function OnItemBought from the target item.
     //ex.: bought a helper with ID = 2. Calls the function OnItemBought from helper#2    
-    alert("Chegou!");
-    console.log(event.detail);
     event.detail.OnItemBought();
     UIUpdateCoinsCount();
     UIUpdateHelpersList();

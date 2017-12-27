@@ -2,20 +2,30 @@
 
 // Globals
 var player = {
-    level: 0,
+    //level: 0,
     resources: {
         coins: 0,
         maxCoins: 0
     },
-    helpers: [],
+    helpers: [],    
     OnLevelUp: function () {console.error(new Error("Function not implemented"));},
     /*resourceGeneratedPerClick: 1,*/
 };
+player.helpers.HasHelperWithId = function (id)
+{
+    var has = false;
+    if (player.helpers.length >= 1)
+        player.helpers.forEach((x) => {if (x.id === id) has = true;});
+    return has;
+}
+
+
 var helpersList = [];
 var ID_COUNTER = 0;// static var used to increment the id on 
 var createHelper = function (name, description, buyPrice, productionValue) {
     var helperObj = {
         id: ID_COUNTER,
+        isUnique: false,
         name: name || "unamed",
         description: description || "",
         buyPrice: buyPrice || 0,
@@ -76,15 +86,6 @@ playArea.addEventListener('click', function(){
 });
 
 
-/**
- * Player
- */
-
-function UIUpdatePlayerInfo()
-{
-    var ui_player_level = document.getElementById('ui-player-level');
-    ui_player_level.innerText = player.level;
-}
 
 /**
  * ################# HELPERS STUFF, Should be split into another file.
@@ -92,9 +93,12 @@ function UIUpdatePlayerInfo()
 
 function InitHelpers()
 {
+    var playerCharacter = createHelper("Player", "YOU", 10, 1);
+    playerCharacter.isUnique = true;
     var hoe = createHelper("hoe", "A hoe that can be used to cut grass", 10, 1);    
     var stringTrimmer = createHelper("string trimmer", "a simple string trimmer.", 20, 2);
     var lawnMower = createHelper("lawn mower", "A simple eletric lawn mower", 30, 3);
+    helpersList.push(playerCharacter);
     helpersList.push(hoe);
     helpersList.push(stringTrimmer);
     helpersList.push(lawnMower);
@@ -129,18 +133,21 @@ function CreateHelperUIListElement(helperElement)
     ui_helper_info.innerText += "Total Production: 0";
     ui_helper_element.appendChild(ui_helper_name);
     ui_helper_element.appendChild(ui_helper_info);
-    //ui_helper_element.innerHTML = ;
+    ui_helper_element.id = "helper-" + helperElement.id;    
     /* logic */
-    ui_helper_element.id = "helper-" + helperElement.id;
-    var ui_helper_btn_buy = document.createElement('a');
-    ui_helper_btn_buy.href = "#";
-    ui_helper_btn_buy.appendChild(document.createTextNode("Buy"));
-    ui_helper_btn_buy.id = "buy-helper-" + helperElement.id;
-    ui_helper_btn_buy.onclick = function () {
-        var onItemBoughtEvent = new CustomEvent('OnItemBought', { detail: helperElement });
-        document.dispatchEvent(onItemBoughtEvent);
-    };
-    ui_helper_element.appendChild(ui_helper_btn_buy);
+    //only allow to buy a helper if it is not a unique already bought
+    if (!helperElement.isUnique || !player.helpers.HasHelperWithId(helperElement.id))
+    {
+        var ui_helper_btn_buy = document.createElement('a');
+        ui_helper_btn_buy.href = "#";
+        ui_helper_btn_buy.appendChild(document.createTextNode("Buy"));
+        ui_helper_btn_buy.id = "buy-helper-" + helperElement.id;
+        ui_helper_btn_buy.onclick = function () {
+            var onItemBoughtEvent = new CustomEvent('OnItemBought', { detail: helperElement });
+            document.dispatchEvent(onItemBoughtEvent);
+        };
+        ui_helper_element.appendChild(ui_helper_btn_buy);
+    }
 
     return ui_helper_element;
 }
@@ -165,5 +172,17 @@ InitHelpers();
 ApplyCustomSettings();
 //To run on every interaction/based on timer:
 UIUpdateHelpersList();
-UIUpdatePlayerInfo()
 // /test only
+
+
+/**
+ * DEPRECATED
+ * 
+ * The functions below my serve a purpose in the fucture, but right now are not needed
+ */
+
+function DEPRECATED_UIUpdatePlayerInfo()
+{
+    var ui_player_level = document.getElementById('ui-player-level');
+    ui_player_level.innerText = player.level;
+}
