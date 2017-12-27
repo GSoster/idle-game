@@ -18,6 +18,8 @@ function OnItemBought(event)
     alert("Chegou!");
     console.log(event.detail);
     event.detail.OnItemBought();
+    UIUpdateCoinsCount();
+    UIUpdateHelpersList();
 }
 
 function OnLevelUp(event)

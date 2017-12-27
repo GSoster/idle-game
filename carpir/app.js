@@ -24,7 +24,14 @@ var createHelper = function (name, description, buyPrice, productionValue) {
         itemNeeded: [],
         requiredLevel: 0, //required player's level to unlock this specific helper
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
-        OnItemBought: function () {console.error(new Error("Function not implemented"));},
+        OnItemBought: function () {            
+            if (player.resources.coins >= this.buyPrice){
+                player.resources.coins -= this.buyPrice;
+            }
+            else 
+                console.error(new Error("Function not implemented"));
+                
+        },
         OnItemSold: function () {console.error(new Error("Function not implemented"));},
     };
     ID_COUNTER++;
@@ -69,9 +76,9 @@ playArea.addEventListener('click', function(){
 
 function InitHelpers()
 {
-    var hoe = createHelper("hoe", "A hoe that can be used to cut grass", 100, 1);    
-    var stringTrimmer = createHelper("string trimmer", "a simple string trimmer.", 400, 2);
-    var lawnMower = createHelper("lawn mower", "A simple eletric lawn mower", 600, 3);
+    var hoe = createHelper("hoe", "A hoe that can be used to cut grass", 10, 1);    
+    var stringTrimmer = createHelper("string trimmer", "a simple string trimmer.", 20, 2);
+    var lawnMower = createHelper("lawn mower", "A simple eletric lawn mower", 30, 3);
     helpersList.push(hoe);
     helpersList.push(stringTrimmer);
     helpersList.push(lawnMower);
@@ -82,6 +89,7 @@ function UIUpdateHelpersList()
     if (helpersList.length < 1)
         return;
     var ui_helpers_List = document.getElementById(__config.ui_helpers_list);
+    ui_helpers_List.innerHTML = "";
     helpersList.forEach(element => {ui_helpers_List.appendChild(CreateHelperUIListElement(element));});
 }
 
