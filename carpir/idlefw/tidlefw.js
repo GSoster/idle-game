@@ -10,7 +10,7 @@
  * OBS.:  not even Event handler functions are  allowed to start with lower case.
  */
 
-// Declares the logic 
+// ########### Declares the logic 
 function OnItemBought(event)
 {
     //calls the function OnItemBought from the target item.
@@ -22,10 +22,15 @@ function OnLevelUp(event)
 
 }
 
-//General event handlers
-document.addEventListener('OnItemBought', OnItemBought);
-document.addEventListener('OnLevelUp', OnLevelUp);
+// ########### Self Invoking function to add eventListeners 
+(function () {
+    //General event handlers
+    document.addEventListener('OnItemBought', OnItemBought);
+    document.addEventListener('OnLevelUp', OnLevelUp);
 
-//Event Handlers for specific areas
-const ui_play_area = document.getElementById('ui-play-area');
-ui_play_area.addEventListener('OnClick', OnClick);
+    //Event Handlers for specific areas
+    const ui_play_area = document.getElementById('ui-play-area');
+    ui_play_area.addEventListener('OnClick', OnClick);
+})();
+
+

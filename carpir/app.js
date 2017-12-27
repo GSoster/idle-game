@@ -62,6 +62,11 @@ playArea.addEventListener('click', function(){
 });
 
 
+
+/**
+ * ################# HELPERS STUFF, Should be split into another file.
+ */
+
 function InitHelpers()
 {
     var hoe = createHelper("hoe", "A hoe that can be used to cut grass", 100, 1);    
@@ -80,7 +85,10 @@ function UIUpdateHelpersList()
     helpersList.forEach(element => {ui_helpers_List.appendChild(CreateHelperListElement(element));});
 }
 
-
+/**
+ * This function clearly should be split in many others.
+ * @param {*} helperElement 
+ */
 function CreateHelperListElement(helperElement) 
 {   /* visual */
     var ui_helper_element = document.createElement("li");
@@ -105,7 +113,7 @@ function CreateHelperListElement(helperElement)
 
 
 /**
- * Custom settings are defined by the game developer.
+ * Custom settings are defined by the game developer. 
  */
 function ApplyCustomSettings()
 {
