@@ -90,7 +90,7 @@ playArea.addEventListener('click', function(){
 /**
  * ################# HELPERS STUFF, Should be split into another file.
  */
-
+//this function should read from file and create helpers, after that add them to the helper list
 function InitHelpers()
 {
     var playerCharacter = createHelper("Player", "YOU", 10, 1);
@@ -152,10 +152,6 @@ function CreateHelperUIListElement(helperElement)
     return ui_helper_element;
 }
 
-
-function CreateHelperLogicElement(helperElement){
-    
-}
 
 /**
  * Custom settings are defined by the game developer. 
