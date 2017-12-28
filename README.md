@@ -29,4 +29,12 @@ Helpers are responsible for generating resources for the player, they are also k
 
 ### Status
 
-Status are temporary or permantent effects that affect resource generation. 
+In short: Status are temporary ~~or permantent~~ effects that affect resource generation. 
+A status is a generic and broad concept. It can be anything, really. But a few points must be noted: 
+- A status has to declare if it affects the production in a positive or negative way.
+- A status has to inform how much it will affect resource production (for example, up 20%, down 5%).
+- A status has to have a fixed time.
+- It may have a brief description (shown as a tooltip).
+- it may stack or not (be applied twice or more during a same instant in time).
+
+
