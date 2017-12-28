@@ -10,7 +10,14 @@ Idle game is a project to create a click/idle game in javascript.
 The idea is to make a simple framework that provides the fundamental structure to create idle/clicker games.
 The main features are: Helpers, etc
 
+### Resources
+Resources are the main currency and it can be used to buy helpers/cursors, level up characters, enchant items, or anything you can think of.
+ - Each player's click generate a fixed amount of resource. The rate grows based on many factors (level, skills, status, etc).
+ - Resources can be spent to acquire helpers.
+ - Helpers generate more resources.
+
 ### Helpers/Cursors
+Helpers are responsible for generating resources for the player, they are also known as cursors and usually represent or simulate an autoclick mechanic. They have an initial cost and after bought start to produce resources on a fixed rate.
  - Helpers/cursors can be unique (in games with heroes like sakura clicker) or have multiple instances (more resource management focused games like controlling skyscrapers). [implemented]
  - Helpers have level and skills.
  - Helpers have event handlers for custom events (OnItemBought, onAddedToInventory, onSold, etc.).
