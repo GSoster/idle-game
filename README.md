@@ -1,6 +1,16 @@
-# idle-game
+# TidleFW (Tiny Idle FrameWork)
+
+## Carpir - an experiment
+A simple Idle Game to identify and understand the skeleton of idle/click games. This project focus on identifying the most used mechanics of clicker games to (in the future) separate them from the game and create a tiny idle game framework.
 Idle game is a project to create a click/idle game in javascript.
   
-Use custom events for when the player do some actions: onItemBought, onAddedToInventory, onSold, etc.
+  
+## The TidleFW 
 
-helpers must have: ---
+The idea is to make a simple framework that provides the fundamental structure to create idle/clicker games.
+The main features are: Helpers, etc
+
+### Helpers/Cursors
+ - Helpers/cursors can be unique (in games with heroes like sakura clicker) or have multiple instances (more resource management focused games like controlling skyscrapers). [implemented]
+ - Helpers have level and skills.
+ - Helpers have event handlers for custom events (OnItemBought, onAddedToInventory, onSold, etc.).
