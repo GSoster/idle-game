@@ -2,7 +2,6 @@
 
 ## Carpir - an experiment
 A simple Idle Game to identify and understand the skeleton of idle/click games. This project focus on identifying the most used mechanics of clicker games to (in the future) separate them from the game and create a tiny idle game framework.
-Idle game is a project to create a click/idle game in javascript.
   
   
 ## The TidleFW 
