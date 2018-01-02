@@ -51,6 +51,11 @@ function ReosourceProduced(value)
     UIUpdateHelpersList();
 }
 
+function ResourceSpent(value)
+{
+    
+}
+
 //GAME LOOP
 
 setInterval(function () {

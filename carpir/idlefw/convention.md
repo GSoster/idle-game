@@ -18,7 +18,7 @@ eg.: ui_item_list
 
 ### Functions
 
-**Functions** Functions should have all its initials uppercase and its curly brackets starting in the next line
+**Functions** Functions should have all its initials uppercase and its curly brackets starting in the next line and must start with a verb.
 eg.:
 function ApplySettings()
 {
