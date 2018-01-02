@@ -19,6 +19,17 @@ player.helpers.HasHelperWithId = function (id)
     return has;
 }
 
+//informs how many helpers with a specific ID there are in the helpers list
+//which means: how many helpers of that ID were already bought.
+player.helpers.QuantityOfThisHelper = function (id)
+{
+    var count = 0;
+    player.helpers.forEach(x => {if(x.id == id){count++;}})
+    return count;
+}
+
+// ###########
+
 
 var helpersList = [];
 var ID_COUNTER = 0;// static var used to increment the id on 
@@ -128,7 +139,7 @@ function CreateHelperUIListElement(helperElement)
     var ui_helper_info = document.createElement("span");
     ui_helper_info.style.fontSize = '13px';
     ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
-    ui_helper_info.innerText += " Current Quantity: 0";
+    ui_helper_info.innerText += " Current Quantity: " + player.helpers.QuantityOfThisHelper(helperElement.id);
     ui_helper_info.innerText += " Production: " + helperElement.productionValue;
     ui_helper_info.innerText += "Total Production: 0";
     ui_helper_element.appendChild(ui_helper_name);
