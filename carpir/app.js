@@ -144,14 +144,14 @@ function UIUpdateHelpersList() {
 function CreateHelperUIListElement(helperElement) { /* visual */
     var ui_helper_element = document.createElement("li");
     ui_helper_element.classList += "ui-helper-list-element";
-    var ui_helper_name = document.createElement("span");
+    var ui_helper_name = document.createElement("div");
     ui_helper_name.style.fontWeight = "900";
     ui_helper_name.style.display = "block";
     ui_helper_name.innerText = helperElement.name;
     var ui_helper_graphic = document.createElement('img');
     ui_helper_graphic.classList += "ui-helper-graphic-representation";
     ui_helper_graphic.src = helperElement.graphicRepresentation;
-    var ui_helper_info = document.createElement("span");
+    var ui_helper_info = document.createElement("div");
     ui_helper_info.style.fontSize = '13px';
     ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
     ui_helper_info.innerText += " Current quantity: " + player.helpers.NumberOfHelpersById(helperElement.id);

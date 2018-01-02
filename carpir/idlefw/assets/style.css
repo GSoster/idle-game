@@ -21,22 +21,50 @@
     min-height: 350px;/*TODO: temporary, should be replaced*/
 }
 
+
+/*  Ripple Effect (Click Effect on Play Area)*/
+
+.ripple {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    position: absolute;
+    opacity: 1;
+}
+.rippleEffect {
+    animation: rippleDrop .6s linear;
+}
+
+@keyframes rippleDrop {
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+
+
 /*
 * HELPERS
 */
 
 #ui-helpers-list{
-    border: solid 1px red;    
+    /*border: solid 1px red;    */
     list-style-type: circle;    
 }
 
 .ui-helper-list-element{
-    border: dashed 1px black;
+    /*border: dashed 1px black;*/
     margin: 3px;
     border-collapse: collapse;    
+    display: block;
 }
 
 .ui-helper-graphic-representation{
     width: 24px;
     height: 24px;
+    float: left;
+    display: block;
 }
