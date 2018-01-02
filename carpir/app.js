@@ -63,11 +63,11 @@ var createHelper = function (name, description, buyPrice, productionValue) {
                 player.helpers.push(this);
             }
             else 
-                console.error(new Error("Function not implemented"));
+                console.error(new Error("Tiny Idle Game Framework: Function not implemented"));
                 
         },
-        OnItemSold: function () {console.error(new Error("Function not implemented"));},
-        OnLevelUp: function () {console.error(new Error("Function not implemented"));}
+        OnItemSold: function () {console.error(new Error("Tiny Idle Game Framework: Function not implemented"));},
+        OnLevelUp: function () {console.error(new Error("Tiny Idle Game Framework: Function not implemented"));}
     };
     ID_COUNTER++;
     return helperObj;
