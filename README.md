@@ -42,3 +42,6 @@ Examples: A flood can temporary reduce the production in 40%. A shortage of elec
 
 Bonus are permanent effects that affect resource generation, helpers price, production rate, etc. Bonus are only applied **after** a game reset.
 
+### Achievements
+
+Configurable achievements.
