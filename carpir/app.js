@@ -75,7 +75,8 @@ var createHelper = function (name, description, baseCost, productionValue) {
             SpendResource(this.buyPrice);
             player.helpers.push(this);
             this.buyPrice = this.CalculatePrice();
-            //play audio of being bought
+            var audio = new Audio("game/assets/sounds/OnItemBought.mp3");//play audio of being bought
+            audio.play();
             //display animation
         },
         CalculatePrice: function () {

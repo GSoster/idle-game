@@ -78,7 +78,7 @@ function ProduceResource(value) {
     UIUpdateCoinsCount();
     UIUpdateHelpersList(); //should it be here??
 }
-
+//Todo: Should throw exception!!
 function SpendResource(value) {
     if (player.resources.coins >= value) {
         player.resources.coins = Math.floor(player.resources.coins - value);
