@@ -103,7 +103,7 @@ var createHelper = function (name, description, baseCost, productionValue) {
  */
 //TODO: move this to a function inside a GAME Object
 
-
+//TODO this should be removed, ProduceResource should be used instead.
 function UpdateCoinsCount(qtd) {
     player.resources.maxCoins += qtd;
     player.resources.coins += qtd;
@@ -126,8 +126,10 @@ function UIUpdateRPC(){
 //TODO: move this for a config function inside a GAME Object
 var playArea = document.getElementById(__config.ui_play_area);
 playArea.addEventListener('click', function () {
-    UpdateCoinsCount(1);
-    UIUpdateCoinsCount();
+    //UpdateCoinsCount(1); //replaced by ProduceResource
+    //UIUpdateCoinsCount();  //replaced by ProduceResource
+    ProduceResource(1);
+    
 });
 
 
