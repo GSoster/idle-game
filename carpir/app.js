@@ -46,19 +46,20 @@ player.helpers.TotalProductionByHelperId = function (id) {
 
 var helpersList = [];
 var ID_COUNTER = 0; // static var used to increment the id on 
-var createHelper = function (name, description, buyPrice, productionValue) {
+var createHelper = function (name, description, baseCost, productionValue) {
     var helperObj = {
         id: ID_COUNTER,
         isUnique: false,
         name: name || "unamed",
         description: description || "",
-        buyPrice: buyPrice || 0,
+        baseCost: baseCost || 0,
+        buyPrice: baseCost,
         sellPrice: 0,
         productionValue: productionValue || 0,
         produceRate: 1,
-        canEvolve: false,
-        needItem: false,
-        itemNeeded: [],
+        canEvolve: false,//remove?
+        needItem: false,//remove?
+        itemNeeded: [],//remove?
         level: 1,
         nextLevelPrice: 100,
         requiredLevel: 0, //required player's level to unlock this specific helper
@@ -67,8 +68,17 @@ var createHelper = function (name, description, buyPrice, productionValue) {
         OnItemBought: function () {
             SpendResource(this.buyPrice);
             player.helpers.push(this);
+            this.buyPrice = this.CalculatePrice();
             //play audio of being bought
             //display animation
+        },
+        CalculatePrice: function () {
+            var owned = player.helpers.NumberOfHelpersById(this.id);
+            if (owned === 0)
+                return this.baseCost;
+            var multiplier = 1.09; //TODO: Move this to a global            
+            var price = baseCost * Math.pow(multiplier, owned);
+            return Math.ceil(price);
         },
         OnItemSold: function () {
             console.error(new Error("Tiny Idle Game Framework: Function not implemented"));

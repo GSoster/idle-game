@@ -81,7 +81,7 @@ function ProduceResource(value) {
 
 function SpendResource(value) {
     if (player.resources.coins >= value) {
-        player.resources.coins -= value;
+        player.resources.coins = Math.floor(player.resources.coins - value);
         UIUpdateCoinsCount();
     } else {
         console.error(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
