@@ -146,9 +146,9 @@ function CreateHelperUIListElement(helperElement)
     var ui_helper_info = document.createElement("span");
     ui_helper_info.style.fontSize = '13px';
     ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
-    ui_helper_info.innerText += " Current Quantity: " + player.helpers.NumberOfHelpersById(helperElement.id);
-    ui_helper_info.innerText += " Production: " + helperElement.productionValue;
-    ui_helper_info.innerText += "Total Production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
+    ui_helper_info.innerText += " Current quantity: " + player.helpers.NumberOfHelpersById(helperElement.id);
+    ui_helper_info.innerText += " Single helper production: " + helperElement.productionValue;
+    ui_helper_info.innerText += "Total production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
     ui_helper_element.appendChild(ui_helper_name);
     ui_helper_element.appendChild(ui_helper_info);
     ui_helper_element.id = "helper-" + helperElement.id;    
