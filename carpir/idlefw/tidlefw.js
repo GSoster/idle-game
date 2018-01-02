@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Tiny Idle FrameWork
+ * Tiny Idle Game FrameWork (TIG FW)
  * 
  * Event Handler
  * 
@@ -11,6 +11,7 @@
  */
 
 // ########### Declares the logic 
+//TODO: the player deduced value logic should be here, not in the onItemBought function of each item.
 function OnItemBought(event)
 {
     //calls the function OnItemBought from the target item.

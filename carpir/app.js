@@ -7,7 +7,8 @@ var player = {
         coins: 0,
         maxCoins: 0
     },
-    helpers: [],    
+    helpers: [],
+    currentProductionValue: 0,
     OnLevelUp: function () {console.error(new Error("Function not implemented"));},
     /*resourceGeneratedPerClick: 1,*/
 };
@@ -187,6 +188,25 @@ ApplyCustomSettings();
 //To run on every interaction/based on timer:
 UIUpdateHelpersList();
 // /test only
+
+
+
+//GAME LOOP
+
+setInterval(function () {
+    var producedTick = player.helpers.reduce(function (accumulator, helper){
+        return accumulator += helper.productionValue;
+    }, 0);
+    console.log("Valor produzido: " + producedTick);
+}, 1000);
+
+
+
+//
+
+
+
+
 
 
 /**
