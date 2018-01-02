@@ -39,7 +39,7 @@
 
 @keyframes rippleDrop {
     100% {
-        transform: scale(2);
+        transform: scale(1);
         opacity: 0;
     }
 }
@@ -51,8 +51,10 @@
 */
 
 #ui-helpers-list{
-    /*border: solid 1px red;    */
-    list-style-type: circle;    
+    border: solid 1px red;    
+    list-style-type: circle;  
+    margin: 0;
+    padding: 0;  
 }
 
 .ui-helper-list-element{
@@ -60,13 +62,27 @@
     margin: 3px;
     border-collapse: collapse;    
     display: block;
+    
+}
+
+.ui-helper-name{
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.ui-helper-info{
+    font-size: 13px;    
+    color: red;
+    float: right;
 }
 
 .ui-helper-graphic-representation{
     width: 24px;
     height: 24px;
     float: left;
-    display: block;
+    float: left;
+    /*display: block;*/
 }
 
 .ui-helper-btn-buy{

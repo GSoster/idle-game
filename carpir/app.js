@@ -167,20 +167,21 @@ function UIUpdateHelpersList() {
  */
 function CreateHelperUIListElement(helperElement) { /* visual */
     var ui_helper_element = document.createElement("li");
+    //header - helper name
     ui_helper_element.classList += "ui-helper-list-element";
-    var ui_helper_name = document.createElement("div");
-    ui_helper_name.style.fontWeight = "900";
-    ui_helper_name.style.display = "block";
+    var ui_helper_name = document.createElement("span");
+    ui_helper_name.classList += "ui-helper-name";    
     ui_helper_name.innerText = helperElement.name;
+    //image
     var ui_helper_graphic = document.createElement('img');
     ui_helper_graphic.classList += "ui-helper-graphic-representation";
     ui_helper_graphic.src = helperElement.graphicRepresentation;
+    //helper info
     var ui_helper_info = document.createElement("div");
-    ui_helper_info.style.fontSize = '13px';
-    ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
-    ui_helper_info.innerText += " Current quantity: " + player.helpers.NumberOfHelpersById(helperElement.id);
-    ui_helper_info.innerText += " Single helper production: " + helperElement.productionValue;
-    ui_helper_info.innerText += "Total production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
+    ui_helper_info.classList += "ui-helper-info";    
+    ui_helper_info.innerText = "Price: " + helperElement.buyPrice;    
+    ui_helper_info.innerText += "Production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
+    //add to where it belongs
     ui_helper_element.appendChild(ui_helper_name);
     ui_helper_element.appendChild(ui_helper_graphic);    
     ui_helper_element.appendChild(ui_helper_info);
