@@ -13,3 +13,37 @@ const __custom_settings =
     helpers_graphics_folder: "game/assets/helpers/",
     helpers_graphics_extension: ".png",
 }
+
+//Sample of possible final implementation:
+//use as example: http://pastebin.com/raw/YrmTqheS
+const $_custom_settings = {
+    resources: {
+        resourseName: "coin",
+        maxResourceName: "max coin",
+        priceIncreaseMultiplier: 1.09
+    },
+    ui:{
+        textColor: "#fff",
+        font: "arial",
+        theme: "", //...maybe in the far far future
+    },
+    helpersConfig:{
+        halpersListName: "helpers",
+        graphicsFolder: "x/x/x/",
+        graphicsExtension: ".png",
+    },
+    helpersList: {
+        Hoe: {
+            baseCost: 15,
+            produce: 0.1,
+            description: "",
+            picture: "",//if it goes here there is no need for it in the helpers config
+        }
+    },
+    playArea:{
+        clickEffect: "X",
+        backgroundImage: "url",
+        clickImage: "url"
+    }
+    
+}
