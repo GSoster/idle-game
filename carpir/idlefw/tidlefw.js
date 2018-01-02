@@ -41,7 +41,15 @@ function OnClick()
     const ui_play_area = document.getElementById('ui-play-area');
     ui_play_area.addEventListener('OnClick', OnClick);
 })();
-
+//other functions
+function ReosourceProduced(value)
+{
+    player.resources.coins += value;
+    if(player.resources.maxCoins < player.resources.coins)
+        player.resources.maxCoins = player.resources.coins;
+    UIUpdateCoinsCount();
+    UIUpdateHelpersList();
+}
 
 //GAME LOOP
 
@@ -50,14 +58,7 @@ setInterval(function () {
         return accumulator += helper.productionValue;
     }, 0);
     console.log("Valor produzido: " +  producedValueOnThisTick);
-    player.resources.coins +=  producedValueOnThisTick;
-    //THIS LOGIC
-    //should be put in a separated function to be used by OnItemBought too
-    if(player.resources.maxCoins < player.resources.coins)
-        player.resources.maxCoins = player.resources.coins;
-    UIUpdateCoinsCount();
-    UIUpdateHelpersList();
-    // /THIS LOGIC
+    ReosourceProduced(producedValueOnThisTick);
 }, 1000);
 
 //
