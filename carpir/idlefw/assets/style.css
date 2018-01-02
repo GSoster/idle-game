@@ -68,3 +68,19 @@
     float: left;
     display: block;
 }
+
+.ui-helper-btn-buy{
+    color: white;
+    background: #7fcad0;
+    padding: 10px 20px;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.ui-helper-btn-buy:hover {
+    background: #6ab8be;
+    text-decoration: none;
+}

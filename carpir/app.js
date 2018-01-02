@@ -176,6 +176,7 @@ function CreateHelperUIListElement(helperElement) { /* visual */
     if (!helperElement.isUnique || !player.helpers.HasHelperWithId(helperElement.id)) {
         var ui_helper_btn_buy = document.createElement('a');
         ui_helper_btn_buy.href = "#";
+        ui_helper_btn_buy.classList += "ui-helper-btn-buy"
         ui_helper_btn_buy.appendChild(document.createTextNode("Buy"));
         ui_helper_btn_buy.id = "buy-helper-" + helperElement.id;
         ui_helper_btn_buy.onclick = function () {
