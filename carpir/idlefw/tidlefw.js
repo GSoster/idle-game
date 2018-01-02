@@ -91,13 +91,19 @@ function SpendResource(value) {
 //GAME LOOP
 //TODO: think about how a status should affect this function(Eg.: status makes production go up 20%..)
 setInterval(function () {
-    var producedValueOnThisTick = player.helpers.reduce(function (accumulator, helper) {
+    /*var producedValueOnThisTick = player.helpers.reduce(function (accumulator, helper) {
         return accumulator += helper.productionValue;
-    }, 0);
-    console.log("Valor produzido: " + producedValueOnThisTick);
+    }, 0);*/
+    //console.log("Valor produzido: " + producedValueOnThisTick);
+    //ProduceResource(producedValueOnThisTick);
+    
+    player.CalculateTotalProductionValue();
+    console.log("Valor produzido: " + player.currentProductionValue);
+    ProduceResource(player.currentProductionValue);
+    UIUpdateRPC();
     //logic to handle status
 
-    ProduceResource(producedValueOnThisTick);
+    
 }, 1000);
 
 //

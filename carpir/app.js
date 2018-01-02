@@ -9,6 +9,12 @@ var player = {
     },
     helpers: [],
     currentProductionValue: 0,
+    CalculateTotalProductionValue: function () {
+        this.currentProductionValue = player.helpers.reduce(function (accumulator, helper) {
+            return accumulator += helper.productionValue;
+        }, 0);
+        return this.currentProductionValue;
+    },
     OnLevelUp: function () {
         console.error(new Error("Function not implemented"));
     },
@@ -112,6 +118,11 @@ function UIUpdateCoinsCount() {
     document.getElementById(__config.ui_coins).innerText = player.resources.coins;
 }
 
+
+function UIUpdateRPC(){
+    document.getElementById('rpc').innerText = player.CalculateTotalProductionValue();
+}
+
 //TODO: move this for a config function inside a GAME Object
 var playArea = document.getElementById(__config.ui_play_area);
 playArea.addEventListener('click', function () {
@@ -206,6 +217,7 @@ InitHelpers();
 ApplyCustomSettings();
 //To run on every interaction/based on timer:
 UIUpdateHelpersList();
+
 // /test only
 
 /**
