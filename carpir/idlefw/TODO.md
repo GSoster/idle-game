@@ -8,3 +8,10 @@ This document keeps track of what must be done and in which order.
 [ ] Move specific framework code to a separated folder
 [x] Use a local version of bootstrap and jquery
 [ ] Create basic status to improve resource production by X%.
+
+## Flow
+() = between parentheses is function/action
+[] = between bracket is event 
+Events are useful to play audio, display animations, etc
+PlayerClick -> (ProduceResource)=>[resourceProduced]
+Player -> Buy item -> (SpendResource)=>[OnItemBought/resourceSpent]

@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Tiny Idle Game FrameWork (TIG FW)
+ * Tiny Idle Game FrameWork (TIG FW / Tidle)
  * 
  * Event Handler
  * 
@@ -12,12 +12,12 @@
 
 // ########### Declares the logic 
 //TODO: the player deduced value logic should be here, not in the onItemBought function of each item.
+//TODO: define if UIUpdateHelpersList should be moved to SpendResource..
 function OnItemBought(event)
 {
     //calls the function OnItemBought from the target item.
     //ex.: bought a helper with ID = 2. Calls the function OnItemBought from helper#2    
-    event.detail.OnItemBought();
-    UIUpdateCoinsCount();
+    event.detail.OnItemBought();    
     UIUpdateHelpersList();
 }
 
@@ -42,18 +42,24 @@ function OnClick()
     ui_play_area.addEventListener('OnClick', OnClick);
 })();
 //other functions
-function ReosourceProduced(value)
+function ProduceResource(value)
 {
     player.resources.coins += value;
     if(player.resources.maxCoins < player.resources.coins)
         player.resources.maxCoins = player.resources.coins;
     UIUpdateCoinsCount();
-    UIUpdateHelpersList();
+    UIUpdateHelpersList();//should it be here??
 }
 
-function ResourceSpent(value)
+function SpendResource(value)
 {
-    
+    if (player.resources.coins >= value){
+        player.resources.coins -= value;
+        UIUpdateCoinsCount();
+    }        
+    else{
+        console.error(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
+    }            
 }
 
 //GAME LOOP
@@ -63,7 +69,7 @@ setInterval(function () {
         return accumulator += helper.productionValue;
     }, 0);
     console.log("Valor produzido: " +  producedValueOnThisTick);
-    ReosourceProduced(producedValueOnThisTick);
+    ProduceResource(producedValueOnThisTick);
 }, 1000);
 
 //
