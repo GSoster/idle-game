@@ -42,6 +42,7 @@ function OnClick()
     ui_play_area.addEventListener('OnClick', OnClick);
 })();
 //other functions
+
 function ProduceResource(value)
 {
     player.resources.coins += value;
@@ -63,12 +64,14 @@ function SpendResource(value)
 }
 
 //GAME LOOP
-
+//TODO: think about how a status should affect this function(Eg.: status makes production go up 20%..)
 setInterval(function () {
     var producedValueOnThisTick = player.helpers.reduce(function (accumulator, helper){
         return accumulator += helper.productionValue;
     }, 0);
     console.log("Valor produzido: " +  producedValueOnThisTick);
+    //logic to handle status
+
     ProduceResource(producedValueOnThisTick);
 }, 1000);
 
