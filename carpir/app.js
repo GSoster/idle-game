@@ -63,7 +63,7 @@ var createHelper = function (name, description, buyPrice, productionValue) {
         nextLevelPrice: 100,
         requiredLevel: 0, //required player's level to unlock this specific helper
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
-        graphicRepresentation: "",//img url
+        graphicRepresentation: __custom_settings.helpers_graphics_folder + this.name + helpers_graphics_extension,//img url
         OnItemBought: function () {
             SpendResource(this.buyPrice);
             player.helpers.push(this);
