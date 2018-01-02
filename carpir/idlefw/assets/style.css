@@ -35,3 +35,8 @@
     margin: 3px;
     border-collapse: collapse;    
 }
+
+.ui-helper-graphic-representation{
+    width: 24px;
+    height: 24px;
+}

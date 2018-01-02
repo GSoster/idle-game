@@ -63,7 +63,7 @@ var createHelper = function (name, description, buyPrice, productionValue) {
         nextLevelPrice: 100,
         requiredLevel: 0, //required player's level to unlock this specific helper
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
-        graphicRepresentation: __custom_settings.helpers_graphics_folder + this.name + helpers_graphics_extension,//img url
+        graphicRepresentation: __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension,//img url
         OnItemBought: function () {
             SpendResource(this.buyPrice);
             player.helpers.push(this);
@@ -147,7 +147,10 @@ function CreateHelperUIListElement(helperElement) { /* visual */
     var ui_helper_name = document.createElement("span");
     ui_helper_name.style.fontWeight = "900";
     ui_helper_name.style.display = "block";
-    ui_helper_name.innerText = helperElement.name
+    ui_helper_name.innerText = helperElement.name;
+    var ui_helper_graphic = document.createElement('img');
+    ui_helper_graphic.classList += "ui-helper-graphic-representation";
+    ui_helper_graphic.src = helperElement.graphicRepresentation;
     var ui_helper_info = document.createElement("span");
     ui_helper_info.style.fontSize = '13px';
     ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
@@ -155,6 +158,7 @@ function CreateHelperUIListElement(helperElement) { /* visual */
     ui_helper_info.innerText += " Single helper production: " + helperElement.productionValue;
     ui_helper_info.innerText += "Total production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
     ui_helper_element.appendChild(ui_helper_name);
+    ui_helper_element.appendChild(ui_helper_graphic);    
     ui_helper_element.appendChild(ui_helper_info);
     ui_helper_element.id = "helper-" + helperElement.id;
     /* logic */
