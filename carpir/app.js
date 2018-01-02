@@ -189,26 +189,6 @@ ApplyCustomSettings();
 UIUpdateHelpersList();
 // /test only
 
-
-
-//GAME LOOP
-
-setInterval(function () {
-    var producedTick = player.helpers.reduce(function (accumulator, helper){
-        return accumulator += helper.productionValue;
-    }, 0);
-    console.log("Valor produzido: " + producedTick);
-}, 1000);
-
-
-
-//
-
-
-
-
-
-
 /**
  * DEPRECATED
  * 

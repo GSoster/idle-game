@@ -43,3 +43,21 @@ function OnClick()
 })();
 
 
+//GAME LOOP
+
+setInterval(function () {
+    var producedValueOnThisTick = player.helpers.reduce(function (accumulator, helper){
+        return accumulator += helper.productionValue;
+    }, 0);
+    console.log("Valor produzido: " +  producedValueOnThisTick);
+    player.resources.coins +=  producedValueOnThisTick;
+    //THIS LOGIC
+    //should be put in a separated function to be used by OnItemBought too
+    if(player.resources.maxCoins < player.resources.coins)
+        player.resources.maxCoins = player.resources.coins;
+    UIUpdateCoinsCount();
+    UIUpdateHelpersList();
+    // /THIS LOGIC
+}, 1000);
+
+//
