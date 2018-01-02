@@ -21,11 +21,18 @@ player.helpers.HasHelperWithId = function (id)
 
 //informs how many helpers with a specific ID there are in the helpers list
 //which means: how many helpers of that ID were already bought.
-player.helpers.QuantityOfThisHelper = function (id)
+player.helpers.NumberOfHelpersById = function (id)
 {
     var count = 0;
     player.helpers.forEach(x => {if(x.id == id){count++;}})
     return count;
+}
+//returns the total amount that helpers of same ID will produce
+player.helpers.TotalProductionByHelperId = function (id)
+{
+    return player.helpers.filter(helper => helper.id === id).reduce(function (accumulator, helper){
+        return accumulator += helper.productionValue;
+    }, 0);
 }
 
 // ###########
@@ -139,9 +146,9 @@ function CreateHelperUIListElement(helperElement)
     var ui_helper_info = document.createElement("span");
     ui_helper_info.style.fontSize = '13px';
     ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
-    ui_helper_info.innerText += " Current Quantity: " + player.helpers.QuantityOfThisHelper(helperElement.id);
+    ui_helper_info.innerText += " Current Quantity: " + player.helpers.NumberOfHelpersById(helperElement.id);
     ui_helper_info.innerText += " Production: " + helperElement.productionValue;
-    ui_helper_info.innerText += "Total Production: 0";
+    ui_helper_info.innerText += "Total Production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
     ui_helper_element.appendChild(ui_helper_name);
     ui_helper_element.appendChild(ui_helper_info);
     ui_helper_element.id = "helper-" + helperElement.id;    
