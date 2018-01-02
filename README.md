@@ -44,3 +44,12 @@ Bonus are permanent effects that affect resource generation, helpers price, prod
 ### Achievements
 
 Configurable achievements.
+
+---
+
+## File Structure
+/Tidlefw
+**player**: holds information related to player, its resources (current and max), its helpers already obtained
+**helpers**: holds information related to helpers/cursors that can be bought by the player: name, description, production value.
+**tidle**: holds general logic of the tiny framework - event handlers, event dispatcher, consumption of resources, generation of resources.
+**app**: holds heneral logic related to the game - game loop
