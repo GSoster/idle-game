@@ -74,7 +74,7 @@
 .ui-helper-info{
     font-size: 13px;    
     color: red;
-    float: right;
+    float: right;    
 }
 
 .ui-helper-graphic-representation{
@@ -94,6 +94,7 @@
     text-align: center;
     letter-spacing: 1px;
     font-size: 13px;
+    clear: both;
 }
 
 .ui-helper-btn-buy:hover {
