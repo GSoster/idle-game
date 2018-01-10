@@ -26,6 +26,10 @@ function OnLevelUp(event) {
 
 function PlayAreaOnClick(e) {
     console.log("Clicou!");
+    
+    totalAmountOfClicks++;
+    
+    //Click EFFECT
     // Remove any old one
     $(".ripple").remove();
 

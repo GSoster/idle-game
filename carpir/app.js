@@ -1,6 +1,7 @@
 "use strict";
 
-// Globals
+// Globals - player should be renamed to GAME...?
+var totalAmountOfClicks = 0;
 var player = {
     //level: 0,
     resources: {
@@ -63,19 +64,19 @@ var createHelper = function (name, description, baseCost, productionValue) {
         sellPrice: 0,
         productionValue: productionValue || 0,
         produceRate: 1,
-        canEvolve: false,//remove?
-        needItem: false,//remove?
-        itemNeeded: [],//remove?
+        canEvolve: false, //remove?
+        needItem: false, //remove?
+        itemNeeded: [], //remove?
         level: 1,
         nextLevelPrice: 100,
         requiredLevel: 0, //required player's level to unlock this specific helper
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
-        graphicRepresentation: __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension,//img url
+        graphicRepresentation: __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension, //img url
         OnItemBought: function () {
             SpendResource(this.buyPrice);
             player.helpers.push(this);
             this.buyPrice = this.CalculatePrice();
-            var audio = new Audio("game/assets/sounds/OnItemBought.mp3");//play audio of being bought
+            var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
             audio.play();
             //display animation
         },
@@ -120,7 +121,7 @@ function UIUpdateCoinsCount() {
 }
 
 
-function UIUpdateRPC(){
+function UIUpdateRPC() {
     document.getElementById('rpc').innerText = player.CalculateTotalProductionValue();
 }
 
@@ -130,7 +131,7 @@ playArea.addEventListener('click', function () {
     //UpdateCoinsCount(1); //replaced by ProduceResource
     //UIUpdateCoinsCount();  //replaced by ProduceResource
     ProduceResource(1);
-    
+
 });
 
 
@@ -170,7 +171,7 @@ function CreateHelperUIListElement(helperElement) { /* visual */
     //header - helper name
     ui_helper_element.classList += "ui-helper-list-element";
     var ui_helper_name = document.createElement("span");
-    ui_helper_name.classList += "ui-helper-name";    
+    ui_helper_name.classList += "ui-helper-name";
     ui_helper_name.innerText = helperElement.name;
     //image
     var ui_helper_graphic = document.createElement('img');
@@ -178,12 +179,12 @@ function CreateHelperUIListElement(helperElement) { /* visual */
     ui_helper_graphic.src = helperElement.graphicRepresentation;
     //helper info
     var ui_helper_info = document.createElement("div");
-    ui_helper_info.classList += "ui-helper-info";    
-    ui_helper_info.innerText = "Price: " + helperElement.buyPrice;    
+    ui_helper_info.classList += "ui-helper-info";
+    ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
     ui_helper_info.innerText += "Production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
     //add to where it belongs
     ui_helper_element.appendChild(ui_helper_name);
-    ui_helper_element.appendChild(ui_helper_graphic);    
+    ui_helper_element.appendChild(ui_helper_graphic);
     ui_helper_element.appendChild(ui_helper_info);
     ui_helper_element.id = "helper-" + helperElement.id;
     /* logic */
