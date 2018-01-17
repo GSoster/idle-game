@@ -1,13 +1,13 @@
-# TidleFW (Tiny Idle FrameWork)
+# TigFW (Tiny Idle Game FrameWork)
 
 ## Carpir - an experiment
 A simple Idle Game to identify and understand the skeleton of idle/click games. This project focus on identifying the most used mechanics of clicker games to (in the future) separate them from the game and create a tiny idle game framework.
   
   
-## The TidleFW 
+## The TigFW 
 
 The idea is to make a simple framework that provides the fundamental structure to create idle/clicker games.
-The main features are: Helpers, etc
+The main features are: Helpers/cursors (autoclick), resources, etc
 
 ### Resources
 
@@ -48,6 +48,9 @@ Configurable achievements.
 ---
 
 ## File Structure
+
+It is necessary to change, still in construction and definition.
+
 /Tidlefw
 **player**: holds information related to player, its resources (current and max), its helpers already obtained
 **helpers**: holds information related to helpers/cursors that can be bought by the player: name, description, production value.
