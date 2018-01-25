@@ -39,7 +39,7 @@ Examples: A flood can temporary reduce the production in 40%. A shortage of elec
 
 ### Bouns
 
-Bonus are permanent effects that affect resource generation, helpers price, production rate, etc. Bonus are only applied **after** a game reset.
+Bonus are permanent effects that affect resource generation, helpers price, production rate, etc. Bonus are only applied **after** a game reset. Example: barter - reduces the price of cursors/helpers in 5%.
 
 ### Achievements
 
