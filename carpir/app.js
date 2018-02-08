@@ -73,12 +73,14 @@ var createHelper = function (name, description, baseCost, productionValue) {
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
         graphicRepresentation: __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension, //img url
         OnItemBought: function () {
-            SpendResource(this.buyPrice);
-            player.helpers.push(this);
-            this.buyPrice = this.CalculatePrice();
-            var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
-            audio.play();
-            //display animation
+            if (SpendResource(this.buyPrice)) 
+            {
+                player.helpers.push(this);
+                this.buyPrice = this.CalculatePrice();
+                var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
+                audio.play();
+                //display animation
+            }         
         },
         CalculatePrice: function () {
             var owned = player.helpers.NumberOfHelpersById(this.id);
