@@ -16,8 +16,14 @@
 function OnItemBought(event) {
     //calls the function OnItemBought from the target item.
     //ex.: bought a helper with ID = 2. Calls the function OnItemBought from helper#2    
-    event.detail.OnItemBought();
-    UIUpdateHelpersList();
+    var item = event.detail;
+    if (SpendResource(item.buyPrice))
+    {
+        player.helpers.push(item);
+        event.detail.OnItemBought();
+        UIUpdateHelpersList();
+    }
+    
 }
 
 function OnLevelUp(event) {

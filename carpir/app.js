@@ -72,15 +72,20 @@ var createHelper = function (name, description, baseCost, productionValue) {
         requiredLevel: 0, //required player's level to unlock this specific helper
         unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
         graphicRepresentation: __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension, //img url
+        /**
+         * After the framework have checked if the player has enough money to buy the item
+         * the method OnItemBought is called. It them acts as necessary for each item.
+         * The default behavior is  to update its price and play an audio.
+         */
         OnItemBought: function () {
-            if (SpendResource(this.buyPrice)) 
-            {
-                player.helpers.push(this);
+            //if (SpendResource(this.buyPrice)) 
+            //{
+                //player.helpers.push(this);
                 this.buyPrice = this.CalculatePrice();
                 var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
                 audio.play();
                 //display animation
-            }         
+            //}
         },
         CalculatePrice: function () {
             var owned = player.helpers.NumberOfHelpersById(this.id);
