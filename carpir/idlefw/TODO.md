@@ -4,11 +4,11 @@ This document keeps track of what must be done and in which order.
 
 [x] Player click to play-area should count clicks and increment coins
 [x] Load sample helpers to screen. A helper should display: name, buy price, current quantity, current total production, production per piece. Should behave: it can be bought.
-[ ] Implement basic image representation for helpers
-[ ] Implement basic audio on events (OnItemBought, etc)
-[ ] Save/Load current status to localstorage
+[x] Implement basic image representation for helpers
+[ ] Implement basic audio on events (OnItemBought, attack (click), etc)
 [ ] Move specific framework code to a separated folder
-[x] Use a local version of bootstrap and jquery
+[ ] Save/Load current status to localstorage (this should be made only after code refactor)
+[x] Use a local version of bootstrap and jquery (during development only. Maybe it is best to use cdn)
 [ ] Create basic status to improve resource production by X%.
 
 ## Advanced 
