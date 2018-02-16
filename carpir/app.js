@@ -77,15 +77,11 @@ var createHelper = function (name, description, baseCost, productionValue) {
          * the method OnItemBought is called. It them acts as necessary for each item.
          * The default behavior is  to update its price and play an audio.
          */
-        OnItemBought: function () {
-            //if (SpendResource(this.buyPrice)) 
-            //{
-                //player.helpers.push(this);
+        OnItemBought: function () {            
                 this.buyPrice = this.CalculatePrice();
                 var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
                 audio.play();
-                //display animation
-            //}
+                //TODO: display animation            
         },
         CalculatePrice: function () {
             var owned = player.helpers.NumberOfHelpersById(this.id);

@@ -95,7 +95,7 @@ function SpendResource(value) {
         UIUpdateCoinsCount();
         return true;
     } else {
-        console.error(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
+        console.warn(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
         return false;
     }
 }
@@ -103,18 +103,11 @@ function SpendResource(value) {
 //GAME LOOP
 //TODO: think about how a status should affect this function(Eg.: status makes production go up 20%..)
 setInterval(function () {
-    /*var producedValueOnThisTick = player.helpers.reduce(function (accumulator, helper) {
-        return accumulator += helper.productionValue;
-    }, 0);*/
-    //console.log("Valor produzido: " + producedValueOnThisTick);
-    //ProduceResource(producedValueOnThisTick);
-    
     player.CalculateTotalProductionValue();
     console.log("Valor produzido: " + player.currentProductionValue);
     ProduceResource(player.currentProductionValue);
     UIUpdateRPC();
     //logic to handle status
-
     
 }, 1000);
 
