@@ -17,22 +17,25 @@ This document keeps track of what must be done and in which order.
 - [ ] Create a Status Manager to handle different status simultaneously 
 
 ## Flow
+
 () = between parentheses is function/action
 [] = between bracket is result/event generated
 Events are useful to play audio, display animations, etc
 
-### Action / Event name
-Sample
+### Action / Event name (Sample)
+
 **Action:** Who does what
 **Simplified flow:** Actor -> does => result
 **In depth Description:**
 
 ### Player Clicks on resource Area (Attack Area)
+
 **Action:** Player (clicks) to generate resources:
 **Simplified flow:** PlayerClick -> (ProduceResource) => [resourceProduced]
 **In depth description:** Player (clicks) on HTML 'ui-play-area'. An event handler was attached to it by Tidlefw, it then calls the function responsible for handling the click. The function generates resource  to the player and displays a visual indicator that the click occurred.
 
 ### Player buy item
+
 **Action:** Player buy item
 **Simplified flow:** Player -> (Buy item) -> (SpendResource) => [OnItemBought/resourceSpent]
 **In depth Description:** Player (clicks) on the buy button for a helper/cursor. The HTML helper list was created by the App and has a handler to dispatch a custom OnItemBought event on click.
@@ -41,7 +44,6 @@ The OnItemBought is then handled by the Tidlefw that (verifies) if the player ha
 ### App generates helpers list
 
 ### App produces resources
-
 
 ## Responsibilities 
 
