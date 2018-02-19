@@ -54,3 +54,19 @@ Game.js is responsible for keeping the current status of the player and its reso
 Player Actions:
 Click to generate resources
 Buy Resources
+
+###  Status
+
+In short: Status are temporary or permantent effects that affect resource generation. A status is a generic and broad concept. It can be anything, really. But a few points must be noted.
+Sample Status:
+```js
+var options = {
+    affects: production, // default value (and maybe the only one possible)
+    effectType: positive, // if it will increase or decrease the production
+    effect: 10, // precentual effect on what it will affect
+    expireTime: 60, // time in seconds
+    description: '',
+    stack: false, // if the same effect/status can be apllied at the same time.
+};
+statusManager.createStatus(options);
+```
