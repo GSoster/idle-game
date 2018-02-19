@@ -65,8 +65,20 @@ var options = {
     effectType: positive, // if it will increase or decrease the production
     effect: 10, // precentual effect on what it will affect
     expireTime: 60, // time in seconds
+    name: '', // the status name
     description: '',
     stack: false, // if the same effect/status can be apllied at the same time.
+    visual: '', // image to be displayed
 };
 statusManager.createStatus(options);
+
+statusManager.createStatus = function (options)
+{
+    // check if the default options were filled
+    if (!options.expireTime)
+        options.expireTime = statusManager.DEFAULT_EXPIRE_TIME;
+    if (!options.description)
+        options.description = `This status affects the ${options.affects} in a ${options.effectType} way: ${options.effect}.`;
+}
+
 ```
