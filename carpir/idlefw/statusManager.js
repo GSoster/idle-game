@@ -20,10 +20,13 @@ var statusManager = {};
 statusManager.CONSTANTS = {
     DEFAULT_STATUS_EXPIRE_TIME: 60,
     DEFAULT_STATUS_EFFECT_TYPE: 'positive',
-    DEFAULT_STATUS_AFFECTS: 'production',
-    DEFAULT_STATUS_EFFECT_VALUE: 5, // 5%
-    DEFAULT_STATUS_NAME: 'status',
+    DEFAULT_STATUS_NAME: 'Status',
+    DEFAULT_STATUS_EFFECT_VALUE: 5, // 5%    
+    CAN_STATUS_STACK: false,
+    STATUS_AFFECTS: 'production',
+
     UI_DISPPLAY_STATUS: '', // id of the html elment that display status information
+    
 };
 
 // Lists of status
@@ -46,8 +49,12 @@ statusManager.createStatus = function (options)
     newStatus.effectType = options.effectType || statusManager.CONSTANTS.DEFAULT_STATUS_EFFECT_TYPE;
     newStatus.name = options.name || statusManager.CONSTANTS.DEFAULT_STATUS_NAME;
     newStatus.effect = options.effect || statusManager.CONSTANTS.DEFAULT_STATUS_EFFECT_VALUE;
-    //descriptions depends on other info...
-    newStatus.description = options.description || `This status affects the ${options.affects} in a ${options.effectType} way: ${options.effect}.`;
+    newStatus.stack = options.stack || statusManager.CONSTANTS.CAN_STATUS_STACK;
+    newStatus.affects = options.affects || statusManager.CONSTANTS.STATUS_AFFECTS;
+    //descriptions depends on other info, so it has to be here after the other info are fileld...
+    newStatus.description = options.description || `${newStatus.name}: This status affects the ${newStatus.affects} in a ${newStatus.effectType} way: ${newStatus.effect}.`;
+
+    // it still necessary to define how to work with: Condition and the visual (#id of html element)
 
     return newStatus;
 

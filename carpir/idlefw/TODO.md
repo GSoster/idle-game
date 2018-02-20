@@ -61,13 +61,13 @@ In short: Status are temporary or permantent effects that affect resource genera
 Sample Status:
 ```js
 var options = {
-    affects: production, // default value (and maybe the only one possible)
-    effectType: positive, // if it will increase or decrease the production
-    effect: 10, // precentual effect on what it will affect
     expireTime: 60, // time in seconds
+    effectType: positive, // if it will increase or decrease the production
     name: '', // the status name
-    description: '',
+    effect: 5, // precentual effect on what it will affect
     stack: false, // if the same effect/status can be apllied at the same time.
+    affects: production, // default value (and maybe the only one possible)
+    description: '',
     visual: '', // image to be displayed
     condition: '', // when to trigger the effect
 };
