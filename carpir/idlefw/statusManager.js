@@ -17,8 +17,9 @@
 var statusManager = {};
 
 // All the constants related to status
-statusManager.constants = {
+statusManager.CONSTANTS = {
     DEFAULT_STATUS_EXPIRE_TIME: 60,
+    DEFAULT_STATUS_EFFECT_TYPE: 'positive',
     DEFAULT_STATUS_NAME: 'status',
     UI_DISPPLAY_STATUS: '', // id of the html elment that display status information
 };
@@ -35,5 +36,15 @@ statusManager.toApplyStatusList = [];
  */
 statusManager.createStatus = function (options)
 {
+    var newStatus = {};
+    // check if the default options were filled
+    //if (!options.expireTime)        
+        //options.expireTime = statusManager.CONSTANTS.DEFAULT_STATUS_EXPIRE_TIME;
+    newStatus.expireTime = options.expireTime || statusManager.CONSTANTS.DEFAULT_STATUS_EXPIRE_TIME;
+    newStatus.description = options.description || `This status affects the ${options.affects} in a ${options.effectType} way: ${options.effect}.`;
+    newStatus.effectType = options.effectType || statusManager.CONSTANTS.DEFAULT_STATUS_EFFECT_TYPE;
+
+    
+    return newStatus;
 
 }
