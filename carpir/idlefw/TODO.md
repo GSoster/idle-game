@@ -69,6 +69,7 @@ var options = {
     description: '',
     stack: false, // if the same effect/status can be apllied at the same time.
     visual: '', // image to be displayed
+    condition: '', // when to trigger the effect
 };
 statusManager.createStatus(options);
 

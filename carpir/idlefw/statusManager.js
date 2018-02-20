@@ -28,6 +28,11 @@ statusManager.currentStatusList = [];
 statusManager.toApplyStatusList = [];
 
 
+/**
+ * validates if the options object is valid. if is is creates a new status object
+ * and adds it to the toApplyStatusList
+ * @param {*} options 
+ */
 statusManager.createStatus = function (options)
 {
 
