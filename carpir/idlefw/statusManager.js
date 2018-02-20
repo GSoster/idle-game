@@ -20,6 +20,8 @@ var statusManager = {};
 statusManager.CONSTANTS = {
     DEFAULT_STATUS_EXPIRE_TIME: 60,
     DEFAULT_STATUS_EFFECT_TYPE: 'positive',
+    DEFAULT_STATUS_AFFECTS: 'production',
+    DEFAULT_STATUS_EFFECT_VALUE: 5, // 5%
     DEFAULT_STATUS_NAME: 'status',
     UI_DISPPLAY_STATUS: '', // id of the html elment that display status information
 };
@@ -40,11 +42,13 @@ statusManager.createStatus = function (options)
     // check if the default options were filled
     //if (!options.expireTime)        
         //options.expireTime = statusManager.CONSTANTS.DEFAULT_STATUS_EXPIRE_TIME;
-    newStatus.expireTime = options.expireTime || statusManager.CONSTANTS.DEFAULT_STATUS_EXPIRE_TIME;
-    newStatus.description = options.description || `This status affects the ${options.affects} in a ${options.effectType} way: ${options.effect}.`;
+    newStatus.expireTime = options.expireTime || statusManager.CONSTANTS.DEFAULT_STATUS_EXPIRE_TIME;    
     newStatus.effectType = options.effectType || statusManager.CONSTANTS.DEFAULT_STATUS_EFFECT_TYPE;
+    newStatus.name = options.name || statusManager.CONSTANTS.DEFAULT_STATUS_NAME;
+    newStatus.effect = options.effect || statusManager.CONSTANTS.DEFAULT_STATUS_EFFECT_VALUE;
+    //descriptions depends on other info...
+    newStatus.description = options.description || `This status affects the ${options.affects} in a ${options.effectType} way: ${options.effect}.`;
 
-    
     return newStatus;
 
 }
