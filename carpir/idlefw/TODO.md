@@ -57,7 +57,7 @@ Buy Resources
 
 ###  Status
 
-In short: Status are temporary or permantent effects that affect resource generation. A status is a generic and broad concept. It can be anything, really. But a few points must be noted.
+In short: Status are temporary effects that affect resource generation. A status is a generic and broad concept. It can be anything, really. But a few points must be noted.
 Sample Status:
 ```js
 var options = {
@@ -71,16 +71,6 @@ var options = {
     visual: '', // image to be displayed
     condition: '', // when to trigger the effect
 };
-statusManager.createStatus(options);
-
-statusManager.createStatus = function (options)
-{
-    // check if the default options were filled
-    if (!options.expireTime)
-        options.expireTime = statusManager.DEFAULT_EXPIRE_TIME;
-    if (!options.description)
-        options.description = `This status affects the ${options.affects} in a ${options.effectType} way: ${options.effect}.`;
-        
-}
-
+var status = statusManager.createStatus(options);
+statusManager.toApplyList.push(status);
 ```
