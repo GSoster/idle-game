@@ -79,6 +79,7 @@ statusManager.createStatus = function (options)
         options.expireTime = statusManager.DEFAULT_EXPIRE_TIME;
     if (!options.description)
         options.description = `This status affects the ${options.affects} in a ${options.effectType} way: ${options.effect}.`;
+        
 }
 
 ```
