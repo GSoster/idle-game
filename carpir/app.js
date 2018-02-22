@@ -119,13 +119,13 @@ function UpdateCoinsCount(qtd) {
  * max coins.
  */
 function UIUpdateCoinsCount() {
-    document.getElementById(__config.ui_max_coins).innerText = player.resources.maxCoins;
-    document.getElementById(__config.ui_coins).innerText = player.resources.coins;
+    document.getElementById(__config.ui_max_coins).innerText = ` ${player.resources.maxCoins} `;
+    document.getElementById(__config.ui_coins).innerText = ` ${player.resources.coins} `;
 }
 
 
 function UIUpdateRPC() {
-    document.getElementById('rpc').innerText = player.CalculateTotalProductionValue();
+    document.getElementById('rpc').innerText = ` ${player.CalculateTotalProductionValue()} `;
 }
 
 //TODO: move this for a config function inside a GAME Object
