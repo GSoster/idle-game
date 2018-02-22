@@ -137,6 +137,8 @@ playArea.addEventListener('click', function () {
 
 });
 
+// UI (move this and other UI related functions to a UI Handler)
+playArea.style.backgroundImage = 'url(' + __custom_settings.playArea_image + ')';
 
 
 /**

@@ -12,6 +12,7 @@ const __custom_settings =
     helpers_list_name: "Helpers",
     helpers_graphics_folder: "game/assets/helpers/",
     helpers_graphics_extension: ".png",
+    playArea_image: 'game/assets/clickArea/grass.gif',
 }
 
 //Sample of possible final implementation:

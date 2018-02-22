@@ -61,3 +61,9 @@ It is necessary to change, still in construction and definition.
 **helpers**: holds information related to helpers/cursors that can be bought by the player: name, description, production value.  
 **tidle**: holds general logic of the tiny framework - event handlers, event dispatcher, consumption of resources, generation of resources.  
 **app**: holds heneral logic related to the game - game loop.  
+
+# Images and Sounds
+
+All sounds come from: https://freesound.org/  
+Images:
+Grass - https://giphy.com/gifs/PHxGCRLnChFtu/download
