@@ -48,7 +48,9 @@ Configurable achievements.
 ### Maybe 
 
 **Plugins** 
-Make eventlisteners (as waits) to specific actions and call specific methods/functions in a spearated layer. This layer would work as a gateway to allow users/develoeprs to create "plugin-like" features and call them throught the use of this separated group of functions.: TigFW --> eventListener to action (eg.: buy item) --> calls action on gateway layer --> if exist calls method specified by developer on some external file.
+Make eventlisteners (as waits) to specific actions and call specific methods/functions in a spearated layer. This layer would work as a gateway to allow users/develoeprs to create "plugin-like" features and call them throught the use of this separated group of functions.: TigFW --> eventListener to action (eg.: buy item) --> calls action on gateway layer --> if exist calls method specified by developer on some external file.  
+**Themes** 
+Maybe it is a good idea to define a folder to "themes" and create some reusable css themes: Medieval, Space, Futuristic/IT, etc
 
 ---
 
