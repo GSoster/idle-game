@@ -1,7 +1,47 @@
 /**
-* This theme contains separated sections:
+* T H E M E S:   G E N E R A L    I N F O R M A T I O N
+* Themes are used as a simple and fast way to change the 
+* looking and feel of a game. Each Theme has a different proposal 
+* and CSS rules but all themes must have the same sections:
 *  - PlayArea: Where the player clicks to generate resources
 *  - Helpers List: The left list where all the helpers are shown
 *  - Helper: The box where a specific helper is displayed
 *  - Top/Status bar: The top bar where status and statistics are visible
+*
+* Note that Musics/Sounds have nothing to do with themes.
+**/
+
+/**
+* M E D I E V A L     T H E M E
+* This theme aims to offer a medieval looking and feel.
+* To achieve this papyrus fonts and backgrounds are used.
+**/
+
+/**
+* ###########################################
+* ###### H E L P E R   S E C T I O N ########
+* ###########################################
+**/
+
+
+
+/**
+* ###########################################
+* #### P L A Y A R E A   S E C T I O N ######
+* ###########################################
+**/
+
+
+
+/**
+* ###########################################
+* ## H E L P E R S L I S T   S E C T I O N ##
+* ###########################################
+**/
+
+
+/**
+* ###########################################
+* ###### T O P B A R   S E C T I O N ########
+* ###########################################
 **/
