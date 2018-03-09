@@ -65,6 +65,11 @@ body{
 * #ui-helpers-list-name (htmlElement: h2): Display the helperslist name (Helpers, Heroes, Spaceships, etc)
 * #ui-helpers-list (htmlElement: ul): The list that contains the helpers
 **/
+
+#ui-helpers-container {
+    border-left: darkgreen 3px solid;
+    background-color: cyan;
+}
 #ui-helpers-list {
     list-style-type: circle;
     border-left: darkgreen 3px solid;
@@ -75,4 +80,9 @@ body{
 * ###########################################
 * ###### T O P B A R   S E C T I O N ########
 * ###########################################
+* TopBar Classes/IDs
+* #ui-resources-bar (htmlElement: div): topbar container
 **/
+#ui-resources-bar {
+    background-color: cadetblue;
+}
