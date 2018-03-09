@@ -34,13 +34,18 @@ body{
 *  - .ui-helper-info (htmlElement: div): holds information about the helper(cost, quantity, production, etc)
 *  - .ui-helper-btn-buy (htmlElement: a): buy button
 **/
-.ui-helper-list-element{
+.ui-helper-list-element {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: brown;
     background-color: burlywood;
 }
-.ui-helper-info{
+.ui-helper-info {
     color: saddlebrown;
+}
+.ui-helper-btn-buy, .ui-helper-btn-buy:hover{
+    background: #7fcad0;
+    color: white;
+    text-decoration: none;
 }
 
 /**
@@ -61,6 +66,7 @@ body{
 * #ui-helpers-list (htmlElement: ul): The list that contains the helpers
 **/
 #ui-helpers-list {
+    list-style-type: circle;
     border-left: darkgreen 3px solid;
 }
 

@@ -1,11 +1,11 @@
 #ui-resources-bar{
-    background-color: lightblue;
+    /* background-color: lightblue; */
     padding-left: 23px;
     /*display: inline-block;*/    
 }
 
 #ui-helpers-container{
-    background-color: lightblue;
+    /*background-color: lightblue;*/
     height: 100%;    
 }
 
@@ -14,7 +14,7 @@
 */
 
 #ui-play-area{
-    border: solid 1px black;
+    /* border: solid 1px black; */
     background-color: grey; /* if there is no background image defined in the custom_settings.js (game assets) */
     width: 100%;
     height: 100%;
@@ -25,7 +25,9 @@
 }
 
 
-/*  Ripple Effect (Click Effect on Play Area)*/
+/*  Ripple Effect (Click Effect on Play Area)
+* Should be moved to theme?
+*/
 
 .ripple {
     width: 0;
@@ -54,8 +56,8 @@
 */
 
 #ui-helpers-list{
-    border: solid 1px red;    
-    list-style-type: circle;  
+    /* border: solid 1px red; */
+    list-style-type: circle;
     margin: 0;
     padding: 0;  
 }
@@ -76,7 +78,7 @@
 
 .ui-helper-info{
     font-size: 13px;    
-    color: red;
+    /* color: red; */
     float: right;    
 }
 
@@ -89,8 +91,6 @@
 }
 
 .ui-helper-btn-buy{
-    color: white;
-    background: #7fcad0;
     padding: 10px 20px;
     display: block;
     margin: 10px 0;
@@ -101,6 +101,6 @@
 }
 
 .ui-helper-btn-buy:hover {
-    background: #6ab8be;
+    /* background: #6ab8be; */
     text-decoration: none;
 }
