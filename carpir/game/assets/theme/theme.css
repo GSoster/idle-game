@@ -1,0 +1,72 @@
+/**
+* T H E M E S:   G E N E R A L    I N F O R M A T I O N
+* Themes are used as a simple and fast way to change the 
+* looking and feel of a game. Each Theme has a different proposal 
+* and CSS rules but all themes must have the same sections:
+*  - PlayArea: Where the player clicks to generate resources
+*  - Helpers List: The left list where all the helpers are shown
+*  - Helper: The box where a specific helper is displayed
+*  - Top/Status bar: The top bar where status and statistics are visible
+*
+* Note that Musics/Sounds have nothing to do with themes.
+* Also note that when moved to the game folder this theme should be
+* renamed to "theme.css". By default only one theme can be applied to a game.
+**/
+
+/**
+* M E D I E V A L     T H E M E
+* This theme aims to offer a medieval looking and feel.
+* To achieve this papyrus fonts and backgrounds are used.
+**/
+
+body{
+    background-color: peachpuff;
+}
+
+/**
+* ###########################################
+* ###### H E L P E R   S E C T I O N ########
+* ###########################################
+* Helper Classes/IDs
+*  - .ui-helper-list-element (htmlElement: li): Contains all the information for a specific helper
+*  - .ui-helper-name (htmlElement: span): Contains the name of the helper
+*  - .ui-helper-graphic-representation (htmlElement: img): the img that represents the helper
+*  - .ui-helper-info (htmlElement: div): holds information about the helper(cost, quantity, production, etc)
+*  - .ui-helper-btn-buy (htmlElement: a): buy button
+**/
+.ui-helper-list-element{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: brown;
+    background-color: burlywood;
+}
+.ui-helper-info{
+    color: saddlebrown;
+}
+
+/**
+* ###########################################
+* #### P L A Y A R E A   S E C T I O N ######
+* ###########################################
+**/
+
+
+
+/**
+* ###########################################
+* ## H E L P E R S L I S T   S E C T I O N ##
+* ###########################################
+* HelperList Classes/IDs
+* #ui-helpers-container (htmlElement: div): contains the ul that displays the helpers
+* #ui-helpers-list-name (htmlElement: h2): Display the helperslist name (Helpers, Heroes, Spaceships, etc)
+* #ui-helpers-list (htmlElement: ul): The list that contains the helpers
+**/
+#ui-helpers-list {
+    border-left: darkgreen 3px solid;
+}
+
+
+/**
+* ###########################################
+* ###### T O P B A R   S E C T I O N ########
+* ###########################################
+**/

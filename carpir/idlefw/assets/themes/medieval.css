@@ -9,6 +9,8 @@
 *  - Top/Status bar: The top bar where status and statistics are visible
 *
 * Note that Musics/Sounds have nothing to do with themes.
+* Also note that when moved to the game folder this theme should be
+* renamed to "theme.css". By default only one theme can be applied to a game.
 **/
 
 /**
@@ -21,8 +23,18 @@
 * ###########################################
 * ###### H E L P E R   S E C T I O N ########
 * ###########################################
+* Helper Classes 
+*  - ui-helper-list-element (htmlElement: li): Contains all the information for a specific helper
+*  - ui-helper-name (htmlElement: span): Contains the name of the helper
+*  - ui-helper-graphic-representation (htmlElement: img): the img that represents the helper
+*  - ui-helper-info (htmlElement: div): holds information about the helper(cost, quantity, production, etc)
+*  - ui-helper-btn-buy (htmlElement: a): buy button
 **/
-
+.ui-helper-list-element{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: brown;
+    background-color: burlywood;
+}
 
 
 /**
