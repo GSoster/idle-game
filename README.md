@@ -69,5 +69,6 @@ It is necessary to change, still in construction and definition.
 # Images and Sounds
 
 All sounds come from: https://freesound.org/  
-Images:
-Grass - https://giphy.com/gifs/PHxGCRLnChFtu/download
+Images:  
+Graphics: https://opengameart.org  
+Grass: https://giphy.com/gifs/PHxGCRLnChFtu/download
