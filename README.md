@@ -25,6 +25,7 @@ Helpers are responsible for generating resources for the player, they are also k
  - Helpers have buyPrice and sellPrice, also productionValue and productionRate.
  - Helpers can have requeriments to be unlocked and/or acquired (players level, minimun quantity of a specific resource, a previous helper already bought, etc).
  - Helpers can handle evolution (for example, a hoe can become a reforced hoe).
+ - Helpers can have a type (machine, eletrical, etc) so status can affect it.
 
 ### Status
 
@@ -33,6 +34,7 @@ A status is a generic and broad concept. It can be anything, really. But a few p
 - A status has to declare if it affects the production in a positive or negative way.
 - A status has to inform how much it will affect resource production (for example, up 20%, down 5%).
 - A status has to have a fixed time.
+- A status can affect only a specific type of helper: an electrical discharge can affect all the eletronic helpers.
 - It may have a brief description (shown as a tooltip).
 - it may stack or not (be applied twice or more during a same instant in time).
 Examples: A flood can temporary reduce the production in 40%. A shortage of electricity can bring production down 90%.
