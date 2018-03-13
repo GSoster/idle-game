@@ -6,9 +6,13 @@ var resourceManager = (function resourceManager(isDebugEnabled) {
     var isDebugEnabled = isDebugEnabled || false;
 
 
+    /**
+     * adds the amount informed to the current quantity of coins
+     * then returns the current quantity of coins.
+     * @param {int} value 
+     */
     var Produce = function (value)
-    {
-        console.log(` value = ${value}`);
+    {        
         coins += value;
         if (coins > maxCoins)
         {
@@ -21,9 +25,8 @@ var resourceManager = (function resourceManager(isDebugEnabled) {
         return coins;
     };
 
-    /**
-     * If there is enought resource to spend then return the total amount of resource - value spent
-     * otherwise returns false.
+    /**     
+     * Returns true if it is able to spend the value, false otherwise
      * @param {int} value 
      */
     var Spend = function (value)
