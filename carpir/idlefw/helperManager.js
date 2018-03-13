@@ -2,11 +2,23 @@
 
 var helperManager = (function () {
     'use strict';
-    var average = "";
-    var media = "";
+    var currentProductionValue = 0;
+    
+    
+    var CalculateTotalProductionValue = function () 
+    {
+
+    }
+
+    var HasHelperWithId = function (id) 
+    {
+
+    }
+
     return {
-        average: average,
-        media: media
+        currentProductionValue: currentProductionValue,
+        CalculateTotalProductionValue: CalculateTotalProductionValue,
+        HasHelperWithId: HasHelperWithId
     };
 
 })();
