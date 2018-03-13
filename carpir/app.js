@@ -110,8 +110,8 @@ var createHelper = function (name, description, baseCost, productionValue) {
 
 //TODO this should be removed, ProduceResource should be used instead.
 function UpdateCoinsCount(qtd) {
-    player.resources.maxCoins += qtd;
-    player.resources.coins += qtd;
+    //player.resources.maxCoins += qtd;
+    //player.resources.coins += qtd;    
 }
 
 /**
@@ -119,8 +119,10 @@ function UpdateCoinsCount(qtd) {
  * max coins.
  */
 function UIUpdateCoinsCount() {
-    document.getElementById(__config.ui_max_coins).innerText = ` ${player.resources.maxCoins} `;
-    document.getElementById(__config.ui_coins).innerText = ` ${player.resources.coins} `;
+    //document.getElementById(__config.ui_max_coins).innerText = ` ${player.resources.maxCoins} `;
+    //document.getElementById(__config.ui_coins).innerText = ` ${player.resources.coins} `;
+    document.getElementById(__config.ui_max_coins).innerText = ` ${resourceManager.getMaxCoins} `;
+    document.getElementById(__config.ui_coins).innerText = ` ${resourceManager.getCurrentCoins} `;
 }
 
 

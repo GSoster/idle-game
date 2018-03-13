@@ -82,22 +82,27 @@ function PlayAreaOnClick(e) {
 //other functions
 
 function ProduceResource(value) {
-    player.resources.coins += value;
-    if (player.resources.maxCoins < player.resources.coins)
-        player.resources.maxCoins = player.resources.coins;
+    //player.resources.coins += value;
+    //if (player.resources.maxCoins < player.resources.coins)
+    //    player.resources.maxCoins = player.resources.coins;
+
+    resourceManager.Produce(value);
+
     UIUpdateCoinsCount();
     UIUpdateHelpersList(); //should it be here??
 }
 //Todo: Should throw exception!!
 function SpendResource(value) {
-    if (player.resources.coins >= value) {
-        player.resources.coins = Math.floor(player.resources.coins - value);
-        UIUpdateCoinsCount();
-        return true;
-    } else {
-        console.warn(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
-        return false;
-    }
+    // if (player.resources.coins >= value) {
+    //     player.resources.coins = Math.floor(player.resources.coins - value);
+    //     UIUpdateCoinsCount();
+    //     return true;
+    // } else {
+    //     console.warn(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
+    //     return false;
+    // }
+    resourceManager.Spend(value);
+    UIUpdateCoinsCount();
 }
 
 //GAME LOOP

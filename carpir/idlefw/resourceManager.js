@@ -25,10 +25,14 @@ var resourceManager = (function (isDebugEnabled) {
     {
         if (coins > value)
         {
-            coins -= value;
+            coins = Math.floor(coins - value);            
             if (isDebugEnabled)
                 console.warn(`Debug: resourceManager.Spend called, ${value} spent.`);
-        }      
+        }
+        else
+        {
+            console.warn(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
+        }
         return coins;
     }
 
