@@ -3,29 +3,30 @@
 var resourceManager = (function (isDebugEnabled) {
     'use strict';
     var coins = 0;
-    var maxCoins = coins;
+    var maxCoins = this.coins;
     var isDebugEnabled = isDebugEnabled || false;
 
 
     var Produce = function (value)
     {
-        coins += value;
-        if (coins > maxCoins)
+        console.log(` value = ${value}`);
+        this.coins += value;
+        if (this.coins > maxCoins)
         {
-            maxCoins = coins;
+            this.maxCoins = this.coins;
             if (isDebugEnabled)
                 console.warn(`Debug: resourceManager.Produce called. MaxCoins updated: ${value}`);
         }
         if (isDebugEnabled)
                 console.warn(`Debug: resourceManager.Produce called, ${value} produced.`);
-        return coins;
+        return this.coins;
     }
 
     var Spend = function (value)
     {
-        if (coins > value)
+        if (this.coins > value)
         {
-            coins = Math.floor(coins - value);            
+            this.coins = Math.floor(this.coins - value);
             if (isDebugEnabled)
                 console.warn(`Debug: resourceManager.Spend called, ${value} spent.`);
         }
@@ -33,14 +34,14 @@ var resourceManager = (function (isDebugEnabled) {
         {
             console.warn(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
         }
-        return coins;
+        return this.coins;
     }
 
 
     return {
         Produce: Produce,
         Spend: Spend,
-        getCurrentCoins: coins,
+        getCurrentCoins: this.coins,
         getMaxCoins: maxCoins
     }
 })(false);
