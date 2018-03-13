@@ -121,8 +121,8 @@ function UpdateCoinsCount(qtd) {
 function UIUpdateCoinsCount() {
     //document.getElementById(__config.ui_max_coins).innerText = ` ${player.resources.maxCoins} `;
     //document.getElementById(__config.ui_coins).innerText = ` ${player.resources.coins} `;
-    document.getElementById(__config.ui_max_coins).innerText = ` ${resourceManager.getMaxCoins} `;
-    document.getElementById(__config.ui_coins).innerText = ` ${resourceManager.getCurrentCoins} `;
+    document.getElementById(__config.ui_max_coins).innerText = ` ${resourceManager.getMaxCoins()} `;
+    document.getElementById(__config.ui_coins).innerText = ` ${resourceManager.getCurrentCoins()} `;
 }
 
 

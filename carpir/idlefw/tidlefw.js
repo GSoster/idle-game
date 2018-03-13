@@ -19,10 +19,12 @@ function OnItemBought(event) {
     var item = event.detail;
     if (SpendResource(item.buyPrice))
     {
+        console.log("entruo");
         player.helpers.push(item);
         event.detail.OnItemBought();
         UIUpdateHelpersList();
     }
+    else{console.log("nos");}
     
 }
 
@@ -101,8 +103,13 @@ function SpendResource(value) {
     //     console.warn(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));
     //     return false;
     // }
-    resourceManager.Spend(value);
-    UIUpdateCoinsCount();
+    if (resourceManager.Spend(value))
+    {
+        UIUpdateCoinsCount();
+        return true;
+    }
+    return false;
+
 }
 
 //GAME LOOP
