@@ -1,8 +1,17 @@
 'use strict';
-
-var resourceManager = (function resourceManager(isDebugEnabled) {
-    var coins = 0;
-    var maxCoins = coins;
+/**
+ * ResourceManager
+ * It manages the reource generation and its use.
+ * It can start with a predefined quantity of coins and/or maxCoins as in
+ * the case of loading a saved game. for that just:
+ * va resourceManager = ()(isDebugEnabled, coins, maxCoins);
+ * @param {boolean} isDebugEnabled
+ * @param {int} coins
+ * @param {int} maxCoins
+ */
+var resourceManager = (function resourceManager(isDebugEnabled, coins, maxCoins) {
+    var coins = coins || 0;
+    var maxCoins = maxCoins || coins;
     var isDebugEnabled = isDebugEnabled || false;
 
 

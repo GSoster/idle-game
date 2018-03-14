@@ -3,7 +3,7 @@
 var helperManager = (function () {
     'use strict';
     var currentProductionValue = 0;
-    
+    var helpers = [];
     
     var CalculateTotalProductionValue = function () 
     {
