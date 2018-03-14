@@ -16,15 +16,14 @@
 function OnItemBought(event) {
     //calls the function OnItemBought from the target item.
     //ex.: bought a helper with ID = 2. Calls the function OnItemBought from helper#2    
-    var item = event.detail;
-    if (SpendResource(item.buyPrice))
-    {
-        console.log("entruo");
+    var item = event.detail;    
+    if (resourceManager.Spend(item.buyPrice))
+    {        
         player.helpers.push(item);
         event.detail.OnItemBought();
+        UIUpdateCoinsCount();
         UIUpdateHelpersList();
-    }
-    else{console.log("nos");}
+    }    
     
 }
 
@@ -85,25 +84,25 @@ function PlayAreaOnClick(e) {
 
 function ProduceResource(value) {
     resourceManager.Produce(value);
-    UIUpdateCoinsCount();
-    UIUpdateHelpersList(); //should it be here??
+     //should it be here??
 }
 
-/**
- * returns true/false
- * @param {int} value 
- */
-function SpendResource(value) {    
-    if (resourceManager.Spend(value))
-    {
-        UIUpdateCoinsCount();
-        return true;
-    }
-    return false;
-
-}
 
 //GAME LOOP
+
+function updateLogic () 
+{
+    resourceManager.Produce(player.currentProductionValue);
+}
+
+function updateGraphics ()
+{
+    UIUpdateCoinsCount();
+    UIUpdateHelpersList();
+    UIUpdateRPC();
+}
+
+
 //TODO: think about how a status should affect this function(Eg.: status makes production go up 20%..)
 setInterval(function () {    
     if (!player.helpers.length || player.helpers.length <= 0)
@@ -112,8 +111,9 @@ setInterval(function () {
     }
     player.CalculateTotalProductionValue();
     console.log("Valor produzido: " + player.currentProductionValue);
-    ProduceResource(player.currentProductionValue);
-    UIUpdateRPC();
+    //ProduceResource(player.currentProductionValue);
+    updateLogic();    
+    updateGraphics()
     //logic to handle status
 
     

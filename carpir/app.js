@@ -216,14 +216,3 @@ ApplyCustomSettings();
 UIUpdateHelpersList();
 
 // /test only
-
-/**
- * DEPRECATED
- * 
- * The functions below my serve a purpose in the fucture, but right now are not needed
- */
-
-function DEPRECATED_UIUpdatePlayerInfo() {
-    var ui_player_level = document.getElementById('ui-player-level');
-    ui_player_level.innerText = player.level;
-}
