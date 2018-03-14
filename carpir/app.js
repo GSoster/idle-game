@@ -3,11 +3,7 @@
 // Globals - player should be renamed to GAME...?
 var totalAmountOfClicks = 0;
 var player = {
-    //level: 0,
-    resources: {
-        coins: 0,
-        maxCoins: 0
-    },
+    //level: 0,    
     helpers: [],
     currentProductionValue: 0,
     CalculateTotalProductionValue: function () {
@@ -108,19 +104,11 @@ var createHelper = function (name, description, baseCost, productionValue) {
  */
 //TODO: move this to a function inside a GAME Object
 
-//TODO this should be removed, ProduceResource should be used instead.
-function UpdateCoinsCount(qtd) {
-    //player.resources.maxCoins += qtd;
-    //player.resources.coins += qtd;    
-}
-
 /**
  * Updates the interface with the current quantity of coins and
  * max coins.
  */
 function UIUpdateCoinsCount() {
-    //document.getElementById(__config.ui_max_coins).innerText = ` ${player.resources.maxCoins} `;
-    //document.getElementById(__config.ui_coins).innerText = ` ${player.resources.coins} `;
     document.getElementById(__config.ui_max_coins).innerText = ` ${resourceManager.getMaxCoins()} `;
     document.getElementById(__config.ui_coins).innerText = ` ${resourceManager.getCurrentCoins()} `;
 }
@@ -133,10 +121,7 @@ function UIUpdateRPC() {
 //TODO: move this for a config function inside a GAME Object
 var playArea = document.getElementById(__config.ui_play_area);
 playArea.addEventListener('click', function () {
-    //UpdateCoinsCount(1); //replaced by ProduceResource
-    //UIUpdateCoinsCount();  //replaced by ProduceResource
     ProduceResource(1);
-
 });
 
 // UI (move this and other UI related functions to a UI Handler)
