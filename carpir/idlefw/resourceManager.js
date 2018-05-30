@@ -12,7 +12,15 @@
 var resourceManager = (function resourceManager(isDebugEnabled, coins, maxCoins) {
     var coins = coins || 0;
     var maxCoins = maxCoins || coins;
-    var isDebugEnabled = isDebugEnabled || false;
+    var isDebugEnabled = isDebugEnabled || false;    
+
+
+    var Init = function ()
+    {
+        var coins = coins || 0;
+        var maxCoins = maxCoins || coins;
+        var isDebugEnabled = isDebugEnabled || false;    
+    }
 
 
     /**
@@ -66,6 +74,7 @@ var resourceManager = (function resourceManager(isDebugEnabled, coins, maxCoins)
         return maxCoins;
     };
     return {
+        Init: Init,
         Produce: Produce,
         Spend: Spend,
         getCurrentCoins: getCurrentCoins,

@@ -109,6 +109,7 @@ var createHelper = function (name, description, baseCost, productionValue) {
  * max coins.
  */
 function UIUpdateCoinsCount() {
+    console.log(`UIUpdateCoinsCount called. MaxCoins: ${resourceManager.getMaxCoins()}  - CurrentCoins: ${resourceManager.getCurrentCoins()}`);
     document.getElementById(__config.ui_max_coins).innerText = ` ${resourceManager.getMaxCoins()} `;
     document.getElementById(__config.ui_coins).innerText = ` ${resourceManager.getCurrentCoins()} `;
 }
