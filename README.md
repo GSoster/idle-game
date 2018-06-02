@@ -52,7 +52,9 @@ Configurable achievements.
 **Plugins** 
 Make eventlisteners (as waits) to specific actions and call specific methods/functions in a spearated layer. This layer would work as a gateway to allow users/develoeprs to create "plugin-like" features and call them throught the use of this separated group of functions.: TigFW --> eventListener to action (eg.: buy item) --> calls action on gateway layer --> if exist calls method specified by developer on some external file.  
 **Themes** 
-Maybe it is a good idea to define a folder to "themes" and create some reusable css themes: Medieval, Space, Futuristic/IT, etc
+Maybe it is a good idea to define a folder to "themes" and create some reusable css themes: Medieval, Space, Futuristic/IT, etc  
+**Layers**  
+Maybe it is a good idea to allow the developer to define "layers" to the playarea, this way could be possible to overlap some content with other more relevant for a specific set of time, let say display an treasure box in front of an enemy.
 
 ---
 
