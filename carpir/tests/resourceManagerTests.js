@@ -8,8 +8,9 @@ QUnit.test( "hello test", function( assert ) {
 });
 
 QUnit.test("By default resources should be zero", function (assert) {
-    var result = resourceManager.getCurrentCoins;
+    var rmc = new ResourceManagerClass();
+    var result = rmc.coins;
     var expected = 0;
-    equal(result, expected, 'Default quantity of coins is zero by default.');
+    assert.equal(result, expected, 'Default quantity of coins is zero by default.');
 
 });
