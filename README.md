@@ -1,6 +1,6 @@
 # TigFW (Tiny Idle Game FrameWork)
 
-## Carpir - an experiment
+## Carpir - Game demo/example
 A simple Idle Game to identify and understand the skeleton of idle/click games. This project focus on identifying the most used mechanics of clicker games to (in the future) separate them from the game and create a tiny idle game framework.
   
   
@@ -12,9 +12,9 @@ The main features are: Helpers/cursors (autoclick), resources, etc
 ### Resources
 
 Resources are the main currency and it can be used to buy helpers/cursors, level up characters, enchant items, or anything you can think of.
- - Each player's click generate a fixed amount of resource. The rate grows based on many factors (level, skills, status, etc).
- - Resources can be spent to acquire helpers.
- - Helpers generate more resources.
+ - [x] Each player's click generate a fixed amount of resource. The rate grows based on many factors (level, skills, status, etc).
+ - [x] Resources can be spent to acquire helpers.
+ - [x] Helpers generate more resources.
 
 ### Helpers/Cursors
 
