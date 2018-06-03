@@ -27,9 +27,10 @@ var ResourceManagerClass = class
     Spend (value)
     {
         var spent = false;
-        if (coins >= value)
+        if (value <= 0) return spent;
+        if (this.coins >= value)
         {
-            coins = Math.floor(coins - value);
+            this.coins = Math.floor(this.coins - value);
             spent = true;            
         }
         return spent;

@@ -79,3 +79,53 @@ QUnit.test('Initial coins = 0, produced -20, current quantity of maxCoins should
     var expected = 0;
     assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount of maxCoins: ${result}.`);
 });
+
+/**
+ * ################  SPEND COINS ################
+ */
+
+QUnit.test('Initial coins = 20, Spent 0, current quantity of coins should be 20', function (assert){
+    var specifiedValue = 20; //alter only here
+    var rmc = new ResourceManagerClass(specifiedValue);
+    rmc.Spend(0);
+    var result = rmc.coins;
+    var expected = specifiedValue;
+    assert.equal(result, expected, `Spent 0 coins, total amount of COINS: ${result}.`);
+});
+
+
+QUnit.test('Initial coins = 20, Spent 15, current quantity of coins should be 5', function (assert){
+    var specifiedValue = 20; //alter only here
+    var rmc = new ResourceManagerClass(specifiedValue);
+    rmc.Spend(15);
+    var result = rmc.coins;
+    var expected = 5;
+    assert.equal(result, expected, `Spent 15 coins, total amount of COINS: ${result}.`);
+});
+
+QUnit.test('Initial coins = 20, Spent 20, current quantity of coins should be 0', function (assert){
+    var specifiedValue = 20; //alter only here
+    var rmc = new ResourceManagerClass(specifiedValue);
+    rmc.Spend(specifiedValue);
+    var result = rmc.coins;
+    var expected = 0;
+    assert.equal(result, expected, `Spent ${specifiedValue} coins, total amount of COINS: ${result}.`);
+});
+
+QUnit.test('Initial coins = 20, Spent 25, current quantity of coins should be 20 (no value is spent)', function (assert){
+    var specifiedValue = 20; //alter only here
+    var rmc = new ResourceManagerClass(specifiedValue);
+    rmc.Spend((specifiedValue + 5));
+    var result = rmc.coins;
+    var expected = specifiedValue;
+    assert.equal(result, expected, `Spent ${specifiedValue + 5} coins, total amount of COINS: ${result}.`);
+});
+
+QUnit.test('Initial coins = 20, Spent -25, current quantity of coins should be 20 (no value is spent or added)', function (assert){
+    var specifiedValue = 20; //alter only here
+    var rmc = new ResourceManagerClass(specifiedValue);
+    rmc.Spend(-25);
+    var result = rmc.coins;
+    var expected = specifiedValue;
+    assert.equal(result, expected, `Spent -25 coins, total amount of COINS: ${result}.`);
+});
