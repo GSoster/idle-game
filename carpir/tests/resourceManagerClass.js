@@ -6,5 +6,21 @@ var ResourceManagerClass = class
         this.maxCoins = maxCoins || 0;
     }
 
+    /**
+     * adds the amount informed to the current quantity of coins
+     * then returns the current quantity of coins.
+     * @param {int} value 
+     */
+    Produce (value)
+    {
+        if (value <= 0) return this.coins;
+        this.coins += value;
+        if (this.coins > this.maxCoins)
+            this.maxCoins = this.coins;
+        return this.coins;
+    };
+
    
+
+
 }

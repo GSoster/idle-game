@@ -7,6 +7,9 @@ QUnit.test( "hello test", function( assert ) {
     assert.ok( 1 == "1", "Passed!" );
 });
 
+/**
+ * ################  INITIAL VALUES FOR COINS AND MAXCOINS ################
+ */
 QUnit.test("ResourceManager should return zero coins by default when no initial value is specified", function (assert) {
     var rmc = new ResourceManagerClass();
     var result = rmc.coins;
@@ -37,4 +40,24 @@ QUnit.test("ResourceManager should return speficied initial value (20) for maxCo
     var result = rmc.maxCoins;
     var expected = specifiedValue;
     assert.equal(result, expected, `value ${specifiedValue} was provided to the constructor, maxCoins should be ${specifiedValue}.`);
+});
+
+/**
+ * ################  PRODUCE COINS, UPDATE MAXCOINS ################
+ */
+
+QUnit.test('Initial coins = 0, produced 20, current quantity of coins should be 20', function (assert){
+    var specifiedValue = 20; //alter only here
+    var rmc = new ResourceManagerClass();
+    var result = rmc.Produce(specifiedValue);
+    var expected = specifiedValue;
+    assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount: ${result}.`);
+});
+
+QUnit.test('Initial coins = 0, produced -20, current quantity of coins should be 0', function (assert){
+    var specifiedValue = -20; //alter only here
+    var rmc = new ResourceManagerClass();
+    var result = rmc.Produce(specifiedValue);
+    var expected = 0;
+    assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount: ${result}.`);
 });
