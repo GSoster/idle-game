@@ -51,7 +51,16 @@ QUnit.test('Initial coins = 0, produced 20, current quantity of coins should be 
     var rmc = new ResourceManagerClass();
     var result = rmc.Produce(specifiedValue);
     var expected = specifiedValue;
-    assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount: ${result}.`);
+    assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount of COINS: ${result}.`);
+});
+
+QUnit.test('Initial coins = 0, produced 20, current quantity of maxCoins should be 20', function (assert){
+    var specifiedValue = 20; //alter only here
+    var rmc = new ResourceManagerClass();
+    rmc.Produce(specifiedValue);
+    var result = rmc.maxCoins;
+    var expected = specifiedValue;
+    assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount of MAXCOINS: ${result}.`);
 });
 
 QUnit.test('Initial coins = 0, produced -20, current quantity of coins should be 0', function (assert){
@@ -59,5 +68,14 @@ QUnit.test('Initial coins = 0, produced -20, current quantity of coins should be
     var rmc = new ResourceManagerClass();
     var result = rmc.Produce(specifiedValue);
     var expected = 0;
-    assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount: ${result}.`);
+    assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount of COINS: ${result}.`);
+});
+
+QUnit.test('Initial coins = 0, produced -20, current quantity of maxCoins should be 0', function (assert){
+    var specifiedValue = -20; //alter only here
+    var rmc = new ResourceManagerClass();
+    rmc.Produce(specifiedValue);
+    var result = rmc.maxCoins;    
+    var expected = 0;
+    assert.equal(result, expected, `Produced ${specifiedValue} coins, total amount of maxCoins: ${result}.`);
 });

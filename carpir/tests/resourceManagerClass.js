@@ -20,7 +20,20 @@ var ResourceManagerClass = class
         return this.coins;
     };
 
-   
+ /**     
+     * Returns true if it is able to spend the value, false otherwise
+     * @param {int} value 
+     */
+    Spend (value)
+    {
+        var spent = false;
+        if (coins >= value)
+        {
+            coins = Math.floor(coins - value);
+            spent = true;            
+        }
+        return spent;
+    };
 
 
 }
