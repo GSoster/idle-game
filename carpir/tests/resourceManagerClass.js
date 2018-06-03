@@ -5,4 +5,6 @@ var ResourceManagerClass = class
         this.coins = coins || 0;
         this.maxCoins = maxCoins || 0;
     }
+
+   
 }
