@@ -12,6 +12,8 @@ var ResourceManager = class
 {
     constructor(coins, maxCoins)
     {
+        if (coins < 0) coins = 0;        
+        if (maxCoins < 0) maxCoins = 0;
         this.coins = coins || 0;
         this.maxCoins = maxCoins || 0;
     }

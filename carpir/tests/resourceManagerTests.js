@@ -50,6 +50,13 @@ QUnit.test("ResourceManager should return zero (20) for coins when the initial v
     assert.equal(result, expected, `value ${specifiedValue} was provided to the constructor, coins should be ${result}.`);
 });
 
+QUnit.test("ResourceManager should return zero (20) for maxCoins when the initial value provided is < zero", function (assert) {
+    var specifiedValue = -20; //alter only here
+    var rmc = new ResourceManager(0, specifiedValue);
+    var result = rmc.maxCoins;
+    var expected = 0;
+    assert.equal(result, expected, `value ${specifiedValue} was provided to the constructor, maxCoins should be ${result}.`);
+});
 
 /**
  * ################  PRODUCE COINS, UPDATE MAXCOINS ################
