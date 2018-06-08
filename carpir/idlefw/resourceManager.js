@@ -4,80 +4,47 @@
  * It manages the reource generation and its use.
  * It can start with a predefined quantity of coins and/or maxCoins as in
  * the case of loading a saved game. for that just:
- * va resourceManager = ()(isDebugEnabled, coins, maxCoins);
- * @param {boolean} isDebugEnabled
+ * va resourceManager = new ResourceManager (coinsQuantity, maxCoinsQuantity) 
  * @param {int} coins
  * @param {int} maxCoins
  */
-var _resourceManager = (function resourceManager(isDebugEnabled, coins, maxCoins) {
-    var coins = coins || 0;
-    var maxCoins = maxCoins || coins;
-    var isDebugEnabled = isDebugEnabled || false;    
-
-
-    var Init = function ()
+var ResourceManager = class 
+{
+    constructor(coins, maxCoins)
     {
-        var coins = coins || 0;
-        var maxCoins = maxCoins || coins;
-        var isDebugEnabled = isDebugEnabled || false;    
+        this.coins = coins || 0;
+        this.maxCoins = maxCoins || 0;
     }
-
 
     /**
      * adds the amount informed to the current quantity of coins
      * then returns the current quantity of coins.
      * @param {int} value 
      */
-    var Produce = function (value)
-    {        
-        coins += value;
-        if (coins > maxCoins)
-        {
-            maxCoins = coins;
-            if (isDebugEnabled)
-                console.warn(`Debug: resourceManager.Produce called. MaxCoins updated: ${value}`);
-        }
-        if (isDebugEnabled)
-                console.warn(`Debug: resourceManager.Produce called, ${value} produced.`);
-        return coins;
+    Produce (value)
+    {
+        if (value <= 0) return this.coins;
+        this.coins += value;
+        if (this.coins > this.maxCoins)
+            this.maxCoins = this.coins;
+        return this.coins;
     };
 
-    /**     
+ /**     
      * Returns true if it is able to spend the value, false otherwise
      * @param {int} value 
      */
-    var Spend = function (value)
+    Spend (value)
     {
         var spent = false;
-        if (coins >= value)
+        if (value <= 0) return spent;
+        if (this.coins >= value)
         {
-            coins = Math.floor(coins - value);            
-            if (isDebugEnabled)
-                console.warn(`Debug: resourceManager.Spend called, ${value} spent.`);
+            this.coins = Math.floor(this.coins - value);
             spent = true;            
-        }
-        else
-        {
-            if (isDebugEnabled)
-                console.warn(new Error("Tiny Idle Game Framework: Player doesn't have enough resource to spend."));   
         }
         return spent;
     };
 
-    var getCurrentCoins = function () 
-    {
-        return coins;
-    };
 
-    var getMaxCoins = function () 
-    {
-        return maxCoins;
-    };
-    return {
-        Init: Init,
-        Produce: Produce,
-        Spend: Spend,
-        getCurrentCoins: getCurrentCoins,
-        getMaxCoins: getMaxCoins
-    }
-})(false);
+}

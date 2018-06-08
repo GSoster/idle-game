@@ -1,6 +1,6 @@
 "use strict";
 
-var resourceManager = new ResourceManagerClass();
+var resourceManager = new ResourceManager();
 
 /**
  * Tiny Idle Game FrameWork (TIG FW / Tidle)
