@@ -37,7 +37,7 @@ function PlayAreaOnClick(e) {
     console.log("Clicou!");
     
     totalAmountOfClicks++;
-    
+    UIUpdateCoinsCount(); // to display the new coin added
     //Click EFFECT
     // Remove any old one
     $(".ripple").remove();
@@ -86,7 +86,7 @@ function PlayAreaOnClick(e) {
 
 function ProduceResource(value) {
     resourceManager.Produce(value);
-     //should it be here??
+    //should it be here??
 }
 
 
@@ -107,18 +107,14 @@ function updateGraphics ()
 
 //TODO: think about how a status should affect this function(Eg.: status makes production go up 20%..)
 setInterval(function () {    
-    if (!player.helpers.length || player.helpers.length <= 0)
-    {        
-        return;
-    }
+    
+    updateLogic();
+    updateGraphics();    
     player.CalculateTotalProductionValue();
     console.log("Valor produzido: " + player.currentProductionValue);
-    //ProduceResource(player.currentProductionValue);
-    updateLogic();    
-    updateGraphics()
-    //logic to handle status
-
+    //ProduceResource(player.currentProductionValue);        
     
+    //logic to handle status    
 }, 1000);
 
 //
