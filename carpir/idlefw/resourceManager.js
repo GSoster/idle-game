@@ -9,7 +9,7 @@
  * @param {int} coins
  * @param {int} maxCoins
  */
-var resourceManager = (function resourceManager(isDebugEnabled, coins, maxCoins) {
+var _resourceManager = (function resourceManager(isDebugEnabled, coins, maxCoins) {
     var coins = coins || 0;
     var maxCoins = maxCoins || coins;
     var isDebugEnabled = isDebugEnabled || false;    
