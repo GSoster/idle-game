@@ -111,7 +111,7 @@ setInterval(function () {
     updateLogic();
     updateGraphics();    
     player.CalculateTotalProductionValue();
-    console.log("Valor produzido: " + player.currentProductionValue);
+    //console.log("Valor produzido: " + player.currentProductionValue);
     //ProduceResource(player.currentProductionValue);        
     
     //logic to handle status    

@@ -109,7 +109,7 @@ var createHelper = function (name, description, baseCost, productionValue) {
  * max coins.
  */
 function UIUpdateCoinsCount() {
-    console.log(`UIUpdateCoinsCount called. MaxCoins: ${resourceManager.maxCoins}  - CurrentCoins: ${resourceManager.coins}`);
+    //console.log(`UIUpdateCoinsCount called. MaxCoins: ${resourceManager.maxCoins}  - CurrentCoins: ${resourceManager.coins}`);
     document.getElementById(__config.ui_max_coins).innerText = ` ${resourceManager.maxCoins} `;
     document.getElementById(__config.ui_coins).innerText = ` ${resourceManager.coins} `;
 }
@@ -136,9 +136,13 @@ playArea.style.backgroundImage = 'url(' + __custom_settings.playArea_image + ')'
 function InitHelpers() {
     var playerCharacter = createHelper("Player", "YOU", 10, 1);
     playerCharacter.isUnique = true;
-    var hoe = createHelper("hoe", "A hoe that can be used to cut grass", 10, 1);
+    //var hoe = createHelper("hoe", "A hoe that can be used to cut grass", 10, 1);
     var stringTrimmer = createHelper("string trimmer", "a simple string trimmer.", 20, 2);
     var lawnMower = createHelper("lawn mower", "A simple eletric lawn mower", 30, 3);
+    
+    //test only
+    var hoe = new Helper("hoe", "A hoe that can be used to cut grass", 10, 1);
+    // /test only
     helpersList.push(playerCharacter);
     helpersList.push(hoe);
     helpersList.push(stringTrimmer);

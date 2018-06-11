@@ -21,7 +21,7 @@ var Helper = class
     */
     OnItemBought ()
     {            
-        this.buyPrice = this.CalculatePrice();
+        //this.buyPrice = this.CalculatePrice();
         var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
         audio.play();
         //TODO: display animation            
@@ -35,7 +35,7 @@ var Helper = class
         if (owned === 0)
             return this.baseCost;
         var multiplier = 1.09; //TODO: Move this to a global            
-        var price = baseCost * Math.pow(multiplier, owned);
+        var price = this.baseCost * Math.pow(multiplier, owned);
         return Math.ceil(price);
     }
 
