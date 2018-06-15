@@ -26,3 +26,9 @@ QUnit.test( "Default producionValue value should be 1 when no value is specified
     assert.equal(result, expected, `Default producionValue is ${expected} when no value is specified at creation`);
 });
 
+QUnit.test( "Quantity ", function( assert ) {
+    var helper = new Helper();
+    var result = helper.quantity;
+    var expected = 1;
+    assert.equal(result, expected, `Default quantity is ${result} when no value is specified at creation`);
+});
