@@ -141,7 +141,7 @@ function InitHelpers() {
     var lawnMower = createHelper("lawn mower", "A simple eletric lawn mower", 30, 3);
     
     //test only
-    var hoe = new Helper("hoe", "A hoe that can be used to cut grass", 10, 1);
+    var hoe = new Helper("hoe", "A hoe that can be used to cut grass", 10, 1, __custom_settings.helpers_graphics_folder + 'hoe' + __custom_settings.helpers_graphics_extension);
     // /test only
     helpersList.push(playerCharacter);
     helpersList.push(hoe);

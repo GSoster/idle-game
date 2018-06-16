@@ -12,9 +12,10 @@ var Helper = class
         this.level = 1;
         this.graphicRepresentation = graphicRepresentation || '';
         this.id;
+        this.quantity = 1;
 
         //it should not be defined like this, it is necessary to think about a better way to do it.
-        this.graphicRepresentation= __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension; //img url
+        //this.graphicRepresentation= __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension; //img url
 
         // May be implemented in the future:
         /*

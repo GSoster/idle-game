@@ -26,9 +26,16 @@ QUnit.test( "Default producionValue value should be 1 when no value is specified
     assert.equal(result, expected, `Default producionValue is ${expected} when no value is specified at creation`);
 });
 
-QUnit.test( "Quantity ", function( assert ) {
+QUnit.test( "Quantity of a new item should be zero", function( assert ) {
     var helper = new Helper();
     var result = helper.quantity;
     var expected = 1;
     assert.equal(result, expected, `Default quantity is ${result} when no value is specified at creation`);
+});
+
+QUnit.test( "Calculate price for 1 new helper", function( assert ) {
+    var helper = new Helper();
+    var result = helper.CalculatePrice();
+    var expected = 10;
+    assert.equal(result, expected, `Calculated price is ${result} should be ${expected}`);
 });
