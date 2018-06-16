@@ -39,3 +39,19 @@ QUnit.test( "Calculate price for 1 new helper", function( assert ) {
     var expected = 10;
     assert.equal(result, expected, `Calculated price is ${result} should be ${expected}`);
 });
+
+QUnit.test( "Calculate price for 2 new helpers", function( assert ) {
+    var helper = new Helper();
+    helper.quantity = 2;
+    var result = helper.CalculatePrice();
+    var expected = 12;
+    assert.equal(result, expected, `Calculated price is ${result} should be ${expected}`);
+});
+
+QUnit.test( "Buy price should be updated after buying 1 helper or more", function( assert ) {
+    var helper = new Helper();    
+    helper.OnItemBought();
+    var result = helper.buyPrice;
+    var expected = 12;
+    assert.equal(result, expected, `Buy price for the second helper is ${result} should be ${expected}`);
+});
