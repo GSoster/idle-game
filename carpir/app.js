@@ -48,56 +48,6 @@ player.helpers.TotalProductionByHelperId = function (id) {
 
 
 var helpersList = [];
-var ID_COUNTER = 0; // static var used to increment the id on 
-var createHelper = function (name, description, baseCost, productionValue) {
-    var helperObj = {
-        id: ID_COUNTER,
-        isUnique: false,
-        name: name || "unamed",
-        description: description || "",
-        baseCost: baseCost || 0,
-        buyPrice: baseCost,
-        sellPrice: 0,
-        productionValue: productionValue || 0,
-        produceRate: 1,
-        canEvolve: false, //remove?
-        needItem: false, //remove?
-        itemNeeded: [], //remove?
-        level: 1,
-        nextLevelPrice: 100,
-        requiredLevel: 0, //required player's level to unlock this specific helper
-        unlocksAt: "", // expression to be converted/executed by eval, eg.: maxCoins > 800. PlayerLevel > 15
-        graphicRepresentation: __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension, //img url
-        /**
-         * After the framework have checked if the player has enough money to buy the item
-         * the method OnItemBought is called. It them acts as necessary for each item.
-         * The default behavior is  to update its price and play an audio.
-         */
-        OnItemBought: function () {            
-                this.buyPrice = this.CalculatePrice();
-                var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
-                audio.play();
-                //TODO: display animation            
-        },
-        CalculatePrice: function () {
-            var owned = player.helpers.NumberOfHelpersById(this.id);
-            if (owned === 0)
-                return this.baseCost;
-            var multiplier = 1.09; //TODO: Move this to a global            
-            var price = baseCost * Math.pow(multiplier, owned);
-            return Math.ceil(price);
-        },
-        OnItemSold: function () {
-            console.error(new Error("Tiny Idle Game Framework: Function not implemented"));
-        },
-        OnLevelUp: function () {
-            console.error(new Error("Tiny Idle Game Framework: Function not implemented"));
-        }
-    };
-    ID_COUNTER++;
-    return helperObj;
-}
-
 
 /**
  * GAME SETTINGS 
@@ -134,14 +84,13 @@ playArea.style.backgroundImage = 'url(' + __custom_settings.playArea_image + ')'
  */
 //this function should read from file and create helpers, after that add them to the helper list
 function InitHelpers() {
-    var playerCharacter = createHelper("Player", "YOU", 10, 1);
+    var playerCharacter = new Helper("hedge trimmer", "a commom and simple hedge trimmer ", 10, 1,  __custom_settings.helpers_graphics_folder + 'hedge trimmer' + __custom_settings.helpers_graphics_extension);
     playerCharacter.isUnique = true;
-    //var hoe = createHelper("hoe", "A hoe that can be used to cut grass", 10, 1);
-    var stringTrimmer = createHelper("string trimmer", "a simple string trimmer.", 20, 2);
-    var lawnMower = createHelper("lawn mower", "A simple eletric lawn mower", 30, 3);
     
     //test only
     var hoe = new Helper("hoe", "A hoe that can be used to cut grass", 10, 1, __custom_settings.helpers_graphics_folder + 'hoe' + __custom_settings.helpers_graphics_extension);
+    var stringTrimmer = new Helper("string trimmer", "a simple string trimmer.", 20, 2, __custom_settings.helpers_graphics_folder + 'string trimmer' + __custom_settings.helpers_graphics_extension);
+    var lawnMower = new Helper("lawn mower", "A simple eletric lawn mower", 30, 3, __custom_settings.helpers_graphics_folder + 'lawn mower' + __custom_settings.helpers_graphics_extension);
     // /test only
     helpersList.push(playerCharacter);
     helpersList.push(hoe);

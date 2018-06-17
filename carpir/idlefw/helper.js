@@ -12,8 +12,10 @@ var Helper = class
         this.level = 1;
         this.graphicRepresentation = graphicRepresentation || '';
         this.id;
-        this.quantity = 0;        
-
+        this.quantity = 0;
+        this.sounds = {
+            OnItemBought: 'game/assets/sounds/OnItemBought.mp3',
+        };
         //it should not be defined like this, it is necessary to think about a better way to do it.
         //this.graphicRepresentation= __custom_settings.helpers_graphics_folder + name + __custom_settings.helpers_graphics_extension; //img url
 
@@ -37,7 +39,8 @@ var Helper = class
     {            
         this.quantity++;
         this.buyPrice = this.CalculatePrice();
-        var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
+        //var audio = new Audio("game/assets/sounds/OnItemBought.mp3"); //play audio of being bought
+        var audio = new Audio(this.sounds.OnItemBought); //play audio of being bought
         audio.play();
         //TODO: display animation            
     }
