@@ -45,10 +45,6 @@ player.helpers.TotalProductionByHelperId = function (id) {
 }
 
 // ###########
-
-
-var helpersList = [];
-
 /**
  * GAME SETTINGS 
  */
@@ -66,7 +62,8 @@ function UIUpdateCoinsCount() {
 
 
 function UIUpdateRPC() {
-    document.getElementById('rpc').innerText = ` ${player.CalculateTotalProductionValue()} `;
+    //rpc should use __config.rpc instead of a direct value
+    document.getElementById('rpc').innerText = ` ${helperManager.CalculateTotalProductionValue()} `;
 }
 
 //TODO: move this for a config function inside a GAME Object
@@ -81,39 +78,21 @@ playArea.addEventListener('click', function () {
 playArea.style.backgroundImage = 'url(' + __custom_settings.playArea_image + ')';
 
 
-/**
- * ################# HELPERS STUFF, Should be split into another file.
- */
-//this function should read from file and create helpers, after that add them to the helper list
-function InitHelpers() {
-    var playerCharacter = new Helper("hedge trimmer", "a commom and simple hedge trimmer ", 10, 1,  __custom_settings.helpers_graphics_folder + 'hedge trimmer' + __custom_settings.helpers_graphics_extension);
-    playerCharacter.isUnique = true;
-    
-    //test only
-    var hoe = new Helper("hoe", "A hoe that can be used to cut grass", 10, 1, __custom_settings.helpers_graphics_folder + 'hoe' + __custom_settings.helpers_graphics_extension);
-    var stringTrimmer = new Helper("string trimmer", "a simple string trimmer.", 20, 2, __custom_settings.helpers_graphics_folder + 'string trimmer' + __custom_settings.helpers_graphics_extension);
-    var lawnMower = new Helper("lawn mower", "A simple eletric lawn mower", 30, 3, __custom_settings.helpers_graphics_folder + 'lawn mower' + __custom_settings.helpers_graphics_extension);
-    // /test only
-    helpersList.push(playerCharacter);
-    helpersList.push(hoe);
-    helpersList.push(stringTrimmer);
-    helpersList.push(lawnMower);
-}
 
-function UIUpdateHelpersList() {
-    //if (helpersList.length < 1)
+function UIUpdateHelpersList() {    
     if (helperManager.helpers.length < 1)    
         return;
     var ui_helpers_List = document.getElementById(__config.ui_helpers_list);
     ui_helpers_List.innerHTML = "";
-    //helpersList.forEach(element => {
+    
     helperManager.helpers.forEach(element => {
         ui_helpers_List.appendChild(CreateHelperUIListElement(element));
     });
 }
 
 /**
- * This function clearly should be split in many others.
+ * TODO: This function clearly should be split in many others.
+ * TODO: AND start with UI
  * @param {*} helperElement 
  */
 function CreateHelperUIListElement(helperElement) { /* visual */
@@ -167,12 +146,9 @@ function ApplyCustomSettings() {
     document.getElementById(__config.ui_helpers_list_name).innerText = __custom_settings.helpers_list_name;
 }
 
-//test only
 //InitHelpers();
 var helperManager = new HelperManager();
 helperManager.InitHelpers();
 ApplyCustomSettings();
 //To run on every interaction/based on timer:
 UIUpdateHelpersList();
-
-// /test only

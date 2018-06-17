@@ -10,7 +10,8 @@ var HelperManager = class
     
     /**
      * This function should load and create helpers,
-     * then add them to the helper list
+     * then add them to the helper list.
+     * TODO: In the future make it read from a file
      */
     InitHelpers () 
     {
@@ -36,7 +37,10 @@ var HelperManager = class
     CalculateTotalProductionValue () 
     {
         this.currentProductionValue = this.helpers.reduce(function (accumulator, helper) {
-            return accumulator += helper.productionValue;
+            var value = 0;
+            if (helper.quantity >= 1)
+                value = helper.productionValue * helper.quantity;
+            return accumulator += value;
         }, 0);
         return this.currentProductionValue;
     }
