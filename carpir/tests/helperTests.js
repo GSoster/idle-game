@@ -9,7 +9,7 @@ QUnit.test( "hello test", function( assert ) {
 });
 
 /**
- * 
+ * Price / Value
  */
 
 QUnit.test( "Default buyPrice value should be 10 when no value is specified", function( assert ) {
@@ -26,12 +26,20 @@ QUnit.test( "Default producionValue value should be 1 when no value is specified
     assert.equal(result, expected, `Default producionValue is ${expected} when no value is specified at creation`);
 });
 
+/**
+ * Quantity
+ */
+
 QUnit.test( "Quantity of a new item should be zero", function( assert ) {
     var helper = new Helper();
     var result = helper.quantity;
-    var expected = 1;
+    var expected = 0;
     assert.equal(result, expected, `Default quantity is ${result} when no value is specified at creation`);
 });
+
+/**
+ * Calculate Price / Update buyPrice
+ */
 
 QUnit.test( "Calculate price for 1 new helper", function( assert ) {
     var helper = new Helper();
@@ -48,10 +56,20 @@ QUnit.test( "Calculate price for 2 new helpers", function( assert ) {
     assert.equal(result, expected, `Calculated price is ${result} should be ${expected}`);
 });
 
-QUnit.test( "Buy price should be updated after buying 1 helper or more", function( assert ) {
+QUnit.test( "Buy price should be updated after buying 1 helper", function( assert ) {
     var helper = new Helper();    
+    helper.OnItemBought();   
+    var result = helper.buyPrice;
+    var expected = 11;
+    assert.equal(result, expected, `Buy price for the second helper is ${result} should be ${expected}`);
+});
+
+QUnit.test( "Buy price should be updated after buying more than one helper", function( assert ) {
+    var helper = new Helper();    
+    helper.OnItemBought();
     helper.OnItemBought();
     var result = helper.buyPrice;
     var expected = 12;
     assert.equal(result, expected, `Buy price for the second helper is ${result} should be ${expected}`);
 });
+
