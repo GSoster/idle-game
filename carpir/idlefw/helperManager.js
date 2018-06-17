@@ -1,6 +1,6 @@
 'use strict';
 
-var helperManager = class
+var HelperManager = class
 {
     constructor () 
     {
@@ -8,6 +8,26 @@ var helperManager = class
         this.helpers = [];
     }
     
+    /**
+     * This function should load and create helpers,
+     * then add them to the helper list
+     */
+    InitHelpers () 
+    {
+        var playerCharacter = new Helper("hedge trimmer", "a commom and simple hedge trimmer ", 10, 1,  __custom_settings.helpers_graphics_folder + 'hedge trimmer' + __custom_settings.helpers_graphics_extension);
+        playerCharacter.isUnique = true;
+        
+        //test only
+        var hoe = new Helper("hoe", "A hoe that can be used to cut grass", 10, 1, __custom_settings.helpers_graphics_folder + 'hoe' + __custom_settings.helpers_graphics_extension);
+        var stringTrimmer = new Helper("string trimmer", "a simple string trimmer.", 20, 2, __custom_settings.helpers_graphics_folder + 'string trimmer' + __custom_settings.helpers_graphics_extension);
+        var lawnMower = new Helper("lawn mower", "A simple eletric lawn mower", 30, 3, __custom_settings.helpers_graphics_folder + 'lawn mower' + __custom_settings.helpers_graphics_extension);
+        // /test only
+        this.helpers.push(playerCharacter);
+        this.helpers.push(hoe);
+        this.helpers.push(stringTrimmer);
+        this.helpers.push(lawnMower);
+    }
+
     
     /**
      * Calculates the total production value based on the 

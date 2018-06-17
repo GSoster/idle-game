@@ -84,12 +84,6 @@ function PlayAreaOnClick(e) {
 })();
 //other functions
 
-function ProduceResource(value) {
-    resourceManager.Produce(value);
-    //should it be here??
-}
-
-
 //GAME LOOP
 
 function updateLogic () 

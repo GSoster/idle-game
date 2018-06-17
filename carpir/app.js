@@ -71,8 +71,10 @@ function UIUpdateRPC() {
 
 //TODO: move this for a config function inside a GAME Object
 var playArea = document.getElementById(__config.ui_play_area);
-playArea.addEventListener('click', function () {
-    ProduceResource(1);
+playArea.addEventListener('click', function () {    
+    resourceManager.Produce(1);
+    //should extend the total amount of clicks too
+
 });
 
 // UI (move this and other UI related functions to a UI Handler)
@@ -99,11 +101,13 @@ function InitHelpers() {
 }
 
 function UIUpdateHelpersList() {
-    if (helpersList.length < 1)
+    //if (helpersList.length < 1)
+    if (helperManager.helpers.length < 1)    
         return;
     var ui_helpers_List = document.getElementById(__config.ui_helpers_list);
     ui_helpers_List.innerHTML = "";
-    helpersList.forEach(element => {
+    //helpersList.forEach(element => {
+    helperManager.helpers.forEach(element => {
         ui_helpers_List.appendChild(CreateHelperUIListElement(element));
     });
 }
@@ -164,7 +168,9 @@ function ApplyCustomSettings() {
 }
 
 //test only
-InitHelpers();
+//InitHelpers();
+var helperManager = new HelperManager();
+helperManager.InitHelpers();
 ApplyCustomSettings();
 //To run on every interaction/based on timer:
 UIUpdateHelpersList();
