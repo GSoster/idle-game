@@ -1,7 +1,6 @@
 "use strict";
 
 var resourceManager = new ResourceManager();
-var uiManager = new UIManager();
 /**
  * Tiny Idle Game FrameWork (TIG FW / Tidle)
  * 
@@ -23,7 +22,7 @@ function OnItemBought(event) {
     {        
         player.helpers.push(item);
         event.detail.OnItemBought();//adds +1 to quantity
-        UIUpdateCoinsCount();
+        UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins); // to display updated info of coins spent
         UIUpdateHelpersList();
     }    
     
@@ -37,7 +36,7 @@ function PlayAreaOnClick(e) {
     console.log("Clicou!");
     
     totalAmountOfClicks++;
-    UIUpdateCoinsCount(); // to display the new coin added
+    UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins); // to display the new coin added    
     //Click EFFECT
     // Remove any old one
     $(".ripple").remove();
@@ -92,11 +91,10 @@ function updateLogic ()
 }
 
 function updateGraphics ()
-{
-    UIUpdateCoinsCount();
-    UIUpdateHelpersList();
-    //UIUpdateRPC();
-    UIUpdateRPC(helperManager.CalculateTotalProductionValue());
+{    
+    UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);
+    UIUpdateHelpersList();    
+    UIManager.UpdateRPC(helperManager.CalculateTotalProductionValue());
 }
 
 

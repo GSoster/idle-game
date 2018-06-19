@@ -50,21 +50,6 @@ player.helpers.TotalProductionByHelperId = function (id) {
  */
 //TODO: move this to a function inside a GAME Object
 
-/**
- * Updates the interface with the current quantity of coins and
- * max coins.
- */
-function UIUpdateCoinsCount() {
-    //console.log(`UIUpdateCoinsCount called. MaxCoins: ${resourceManager.maxCoins}  - CurrentCoins: ${resourceManager.coins}`);
-    document.getElementById(__config.ui_max_coins).innerText = ` ${resourceManager.maxCoins} `;
-    document.getElementById(__config.ui_coins).innerText = ` ${resourceManager.coins} `;
-}
-
-
-function UIUpdateRPC() {
-    //rpc should use __config.rpc instead of a direct value
-    document.getElementById('rpc').innerText = ` ${helperManager.CalculateTotalProductionValue()} `;
-}
 
 //TODO: move this for a config function inside a GAME Object
 var playArea = document.getElementById(__config.ui_play_area);
