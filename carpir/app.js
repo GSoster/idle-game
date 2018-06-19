@@ -26,17 +26,6 @@ player.helpers.HasHelperWithId = function (id) {
     return has;
 }
 
-//informs how many helpers with a specific ID there are in the helpers list
-//which means: how many helpers of that ID were already bought.
-player.helpers.NumberOfHelpersById = function (id) {
-    var count = 0;
-    player.helpers.forEach(x => {
-        if (x.id == id) {
-            count++;
-        }
-    })
-    return count;
-}
 //returns the total amount that helpers of same ID will produce
 player.helpers.TotalProductionByHelperId = function (id) {
     return player.helpers.filter(helper => helper.id === id).reduce(function (accumulator, helper) {
@@ -53,51 +42,7 @@ player.helpers.TotalProductionByHelperId = function (id) {
 
 
 
-/**
- * TODO: This function clearly should be split in many others.
- * TODO: AND start with UI
- * @param {*} helperElement 
- */
-function CreateHelperUIListElement(helperElement) { /* visual */
-    var ui_helper_element = document.createElement("li");
-    //header - helper name
-    ui_helper_element.classList += "ui-helper-list-element";
-    var ui_helper_name = document.createElement("span");
-    ui_helper_name.classList += "ui-helper-name";
-    ui_helper_name.innerText = helperElement.name;
-    //image
-    var ui_helper_graphic = document.createElement('img');
-    ui_helper_graphic.classList += "ui-helper-graphic-representation";
-    ui_helper_graphic.src = helperElement.graphicRepresentation;
-    //helper info
-    var ui_helper_info = document.createElement("div");
-    ui_helper_info.classList += "ui-helper-info";
-    ui_helper_info.innerText = "Price: " + helperElement.buyPrice;    
-    ui_helper_info.innerText += "Production: " + helperManager.CalculateTotalProductionByHelperName(helperElement.name);
-    //add to where it belongs
-    ui_helper_element.appendChild(ui_helper_name);
-    ui_helper_element.appendChild(ui_helper_graphic);
-    ui_helper_element.appendChild(ui_helper_info);
-    ui_helper_element.id = "helper-" + helperElement.name;
-    /* logic */
-    //only allow to buy a helper if it is not a unique already bought
-    if (!helperElement.isUnique || !player.helpers.HasHelperWithId(helperElement.id)) {    
-        var ui_helper_btn_buy = document.createElement('a');
-        ui_helper_btn_buy.href = "#";
-        ui_helper_btn_buy.classList += "ui-helper-btn-buy"
-        ui_helper_btn_buy.appendChild(document.createTextNode("Buy"));
-        ui_helper_btn_buy.id = "buy-helper-" + helperElement.id;
-        ui_helper_btn_buy.onclick = function () {
-            var onItemBoughtEvent = new CustomEvent('OnItemBought', {
-                detail: helperElement
-            });
-            document.dispatchEvent(onItemBoughtEvent);
-        };
-        ui_helper_element.appendChild(ui_helper_btn_buy);
-    }
 
-    return ui_helper_element;
-}
 
 
 /**
