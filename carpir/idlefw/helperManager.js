@@ -46,9 +46,17 @@ var HelperManager = class
     }
 
 
+    /**
+     * Calculates the total production value for a specific helper 
+     * @param {string} name 
+     */
     CalculateTotalProductionByHelperName (name) {
-        return player.helpers.filter(helper => helper.name === name).reduce(function (accumulator, helper) {
-            return accumulator += helper.productionValue;
+        //return player.helpers.filter(helper => helper.name === name).reduce(function (accumulator, helper) {
+        return this.helpers.filter(helper => helper.name === name).reduce(function (accumulator, helper) {
+            var value = 0;
+            if (helper.quantity >= 1)
+                value = helper.productionValue * helper.quantity;
+            return accumulator += value;
         }, 0);        
     }
 
