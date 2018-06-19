@@ -50,7 +50,9 @@ Configurable achievements.
 
 ### Maybe  
 
+
 **Plugins**  
+  
 Make eventlisteners (as waits) to specific actions and call specific methods/functions in a spearated layer. This layer would work as a gateway to allow users/develoeprs to create "plugin-like" features and call them throught the use of this separated group of functions.: TigFW --> eventListener to action (eg.: buy item) --> calls action on gateway layer --> if exist calls method specified by developer on some external file.  
 **Themes** 
 Maybe it is a good idea to define a folder to "themes" and create some reusable css themes: Medieval, Space, Futuristic/IT, etc  
@@ -63,13 +65,15 @@ Resources Tests: (ResourceManagerTests.js)
 
 ## File Structure
 
-It is necessary to change, still in construction and definition.
+It is in frequently and continuous changes, this section is under construction and definition.
 TBD.
 
 /Tidlefw  
 **resourceManager**: holds information related resources (current and max) and how to produce and spend them.  
-**helpers**: holds information related to helpers/cursors that can be bought by the player: name, description, production value.  
-**tidle**: holds general logic of the tiny framework - event handlers, event dispatcher, consumption of resources, generation of resources.  
+**helpers**: holds information related to helpers/cursors that can be bought by the player: name, description, production value, baseValue, etc.  
+**helperManager**: controlls helpers, keep track of how many there are and their production values
+**uiManager**: controlls UI/Graphics updates and setups
+**tidle**: holds general logic of the tiny framework - event handlers, event dispatcher.
 **app**: holds heneral logic related to the game - game loop.  
 
 # Images and Sounds
