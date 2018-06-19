@@ -22,8 +22,8 @@ function OnItemBought(event) {
     {        
         player.helpers.push(item);
         event.detail.OnItemBought();//adds +1 to quantity
-        UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins); // to display updated info of coins spent
-        UIUpdateHelpersList();
+        UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins); // to display updated info of coins spent        
+        UIManager.UpdateHelpersList(helperManager.helpers);
     }    
     
 }
@@ -31,6 +31,17 @@ function OnItemBought(event) {
 function OnLevelUp(event) {
 
 }
+
+
+
+//TODO: move this for a config function inside a GAME Object
+var playArea = document.getElementById(__config.ui_play_area);
+playArea.addEventListener('click', function () {    
+    resourceManager.Produce(1);
+    //should extend the total amount of clicks too
+
+});
+
 
 function PlayAreaOnClick(e) {
     console.log("Clicou!");
@@ -92,8 +103,8 @@ function updateLogic ()
 
 function updateGraphics ()
 {    
-    UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);
-    UIUpdateHelpersList();    
+    UIManager.UpdateCoinsCount(resourceManager.coins, resourceManager.maxCoins);    
+    UIManager.UpdateHelpersList(helperManager.helpers);
     UIManager.UpdateRPC(helperManager.CalculateTotalProductionValue());
 }
 

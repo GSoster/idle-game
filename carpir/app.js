@@ -51,29 +51,7 @@ player.helpers.TotalProductionByHelperId = function (id) {
 //TODO: move this to a function inside a GAME Object
 
 
-//TODO: move this for a config function inside a GAME Object
-var playArea = document.getElementById(__config.ui_play_area);
-playArea.addEventListener('click', function () {    
-    resourceManager.Produce(1);
-    //should extend the total amount of clicks too
 
-});
-
-// UI (move this and other UI related functions to a UI Handler)
-playArea.style.backgroundImage = 'url(' + __custom_settings.playArea_image + ')';
-
-
-
-function UIUpdateHelpersList() {    
-    if (helperManager.helpers.length < 1)    
-        return;
-    var ui_helpers_List = document.getElementById(__config.ui_helpers_list);
-    ui_helpers_List.innerHTML = "";
-    
-    helperManager.helpers.forEach(element => {
-        ui_helpers_List.appendChild(CreateHelperUIListElement(element));
-    });
-}
 
 /**
  * TODO: This function clearly should be split in many others.
@@ -136,4 +114,5 @@ var helperManager = new HelperManager();
 helperManager.InitHelpers();
 ApplyCustomSettings();
 //To run on every interaction/based on timer:
-UIUpdateHelpersList();
+UIManager.UpdateHelpersList(helperManager.helpers);
+UIManager.DefinePlayAreaImage();
