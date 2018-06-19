@@ -110,7 +110,8 @@ function CreateHelperUIListElement(helperElement) { /* visual */
     var ui_helper_info = document.createElement("div");
     ui_helper_info.classList += "ui-helper-info";
     ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
-    ui_helper_info.innerText += "Production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
+    //ui_helper_info.innerText += "Production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
+    ui_helper_info.innerText += "Production: " + helperManager.CalculateTotalProductionByHelperName(helperElement.name);
     //add to where it belongs
     ui_helper_element.appendChild(ui_helper_name);
     ui_helper_element.appendChild(ui_helper_graphic);

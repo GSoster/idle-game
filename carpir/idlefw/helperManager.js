@@ -45,6 +45,13 @@ var HelperManager = class
         return this.currentProductionValue;
     }
 
+
+    CalculateTotalProductionByHelperName (name) {
+        return player.helpers.filter(helper => helper.name === name).reduce(function (accumulator, helper) {
+            return accumulator += helper.productionValue;
+        }, 0);        
+    }
+
     /**
      * Verifies if the helpers array has a helper with
      * the provided ID.
