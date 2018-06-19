@@ -109,17 +109,16 @@ function CreateHelperUIListElement(helperElement) { /* visual */
     //helper info
     var ui_helper_info = document.createElement("div");
     ui_helper_info.classList += "ui-helper-info";
-    ui_helper_info.innerText = "Price: " + helperElement.buyPrice;
-    //ui_helper_info.innerText += "Production: " + player.helpers.TotalProductionByHelperId(helperElement.id);
+    ui_helper_info.innerText = "Price: " + helperElement.buyPrice;    
     ui_helper_info.innerText += "Production: " + helperManager.CalculateTotalProductionByHelperName(helperElement.name);
     //add to where it belongs
     ui_helper_element.appendChild(ui_helper_name);
     ui_helper_element.appendChild(ui_helper_graphic);
     ui_helper_element.appendChild(ui_helper_info);
-    ui_helper_element.id = "helper-" + helperElement.id;
+    ui_helper_element.id = "helper-" + helperElement.name;
     /* logic */
     //only allow to buy a helper if it is not a unique already bought
-    if (!helperElement.isUnique || !player.helpers.HasHelperWithId(helperElement.id)) {
+    if (!helperElement.isUnique || !player.helpers.HasHelperWithId(helperElement.id)) {    
         var ui_helper_btn_buy = document.createElement('a');
         ui_helper_btn_buy.href = "#";
         ui_helper_btn_buy.classList += "ui-helper-btn-buy"

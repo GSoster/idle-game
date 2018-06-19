@@ -1,7 +1,7 @@
 "use strict";
 
 var resourceManager = new ResourceManager();
-
+var uiManager = new UIManager();
 /**
  * Tiny Idle Game FrameWork (TIG FW / Tidle)
  * 
@@ -22,7 +22,7 @@ function OnItemBought(event) {
     if (resourceManager.Spend(item.buyPrice))
     {        
         player.helpers.push(item);
-        event.detail.OnItemBought();
+        event.detail.OnItemBought();//adds +1 to quantity
         UIUpdateCoinsCount();
         UIUpdateHelpersList();
     }    
@@ -95,7 +95,8 @@ function updateGraphics ()
 {
     UIUpdateCoinsCount();
     UIUpdateHelpersList();
-    UIUpdateRPC();
+    //UIUpdateRPC();
+    UIUpdateRPC(helperManager.CalculateTotalProductionValue());
 }
 
 
