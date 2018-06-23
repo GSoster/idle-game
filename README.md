@@ -50,6 +50,7 @@ Configurable achievements.
 
 ### Maybe  
 
+add some sort of enemies (layered images to the clickArea )
 
 **Plugins**  
   
