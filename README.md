@@ -1,18 +1,24 @@
+
+# ATTENTION
+> This project is on halt since I'm planning to migrate it to C#/Blazor.
+> The idea is to make it be more consistent and entirely event based.
+
 # TigFW (Tiny Idle Game FrameWork)
 
-## Carpir - Game demo/example
+### Carpir - Game demo/example
 A simple Idle Game to identify and understand the skeleton of idle/click games. This project focus on identifying the most used mechanics of clicker games to (in the future) separate them from the game and create a tiny idle game framework.
   
   
 ## The TigFW 
 
 The idea is to make a simple framework that provides the fundamental structure to create idle/clicker games.
-The main features are: Helpers/cursors (autoclick), resources, etc
+The main features are: Helpers/cursors (autoclick), resources, etc.  
+**In the future the project should be event based, which would allow it to grow transparently.**
 
 ### Resources
 
 Resources are the main currency and it can be used to buy helpers/cursors, level up characters, enchant items, or anything you can think of.
- - [x] Each player's click generate a fixed amount of resource. The rate grows based on many factors (level, skills, status, etc).
+ - [x] Each player's click (on the game specific area) generate a fixed amount of resource. The rate grows based on many factors (level, skills, status, etc).
  - [x] Resources can be spent to acquire helpers.
  - [x] Helpers generate more resources.
 
