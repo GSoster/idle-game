@@ -1,7 +1,8 @@
 
 # ATTENTION
 > This project is on halt since I'm planning to migrate it to C#/Blazor.
-> The idea is to make it be more consistent and entirely event based.
+> The idea is to make it be more consistent and entirely event based.  
+> I'm also considering changing the structure to allow it to be used as a [Fluent API](https://martinfowler.com/bliki/FluentInterface.html).
 
 # TigFW (Tiny Idle Game FrameWork)
 
