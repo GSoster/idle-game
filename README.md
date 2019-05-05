@@ -55,17 +55,13 @@ Bonus are permanent effects that affect resource generation, helpers price, prod
 
 Configurable achievements.
 
-### Maybe  
-
-add some sort of enemies (layered images to the clickArea )
-
 #### Plugins
   
 Make eventlisteners (as waits) to specific actions and call specific methods/functions in a spearated layer. This layer would work as a gateway to allow users/develoeprs to create "plugin-like" features and call them throught the use of this separated group of functions.: TigFW --> eventListener to action (eg.: buy item) --> calls action on gateway layer --> if exist calls method specified by developer on some external file.
 
 #### Themes
 
-Maybe it is a good idea to define a folder to "themes" and create some reusable css themes: Medieval, Space, Futuristic/IT, etc  
+- [x] Maybe it is a good idea to define a folder to "themes" and create some reusable css themes: Medieval, Space, Futuristic/IT, etc  
 
 #### Layers
 
@@ -73,8 +69,13 @@ Maybe it is a good idea to allow the developer to define "layers" to the playare
 
 #### Tests
 
-Define a test framework and use it to make sure everything is work as it should.
+- [x] Define a test framework (being used: QUnit)
 Resources Tests: (ResourceManagerTests.js)
+
+### Maybe    
+Items on this sections can be added, but are not yet defined as necessary.  
+* add some sort of enemies (layered images to the clickArea )
+* EventListener to specific conditions (Similar to a CronJob, could be used on the achievements part or sth like that).
 
 ---
 
