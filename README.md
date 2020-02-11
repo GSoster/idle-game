@@ -47,7 +47,7 @@ A status is a generic and broad concept. It can be anything, really. But a few p
 - it may stack or not (be applied twice or more during a same instant in time).
 Examples: A flood can temporary reduce the production in 40%. A shortage of electricity can bring production down 90%.
 
-### Bouns
+### Bonus
 
 Bonus are permanent effects that affect resource generation, helpers price, production rate, etc. Bonus are only applied **after** a game reset. Example: barter - reduces the price of cursors/helpers in 5%.
 
