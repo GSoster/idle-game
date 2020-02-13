@@ -26,12 +26,12 @@ Resources are the main currency and it can be used to buy helpers/cursors, level
 ### Helpers/Cursors
 
 Helpers are responsible for generating resources for the player, they are also known as cursors and usually represent or simulate an autoclick mechanic. They have an initial cost and after bought start to produce resources on a fixed rate.
- - Helpers/cursors can be unique (in games with heroes like sakura clicker) or have multiple instances (more resource management focused games like controlling skyscrapers). [implemented]
+ - [x] Helpers/cursors can be unique (in games with heroes like sakura clicker) or have multiple instances (more resource management focused games like controlling skyscrapers).
  - Helpers have level and skills.
  - [x] Helpers have event handlers for custom events (OnItemBought, onAddedToInventory, onSold, etc.).
  - [x] Each different event on a helper can have a different sound.
  - [x] Helpers have buyPrice and sellPrice, also productionValue and productionRate.
- - Helpers can have requeriments to be unlocked and/or acquired (players level, minimun quantity of a specific resource, a previous helper already bought, etc). (half implemented)
+ - [x] Helpers can have requeriments to be unlocked and/or acquired (players level, minimun quantity of a specific resource, a previous helper already bought, etc).
  - Helpers can handle evolution (for example, a hoe can become a reforced hoe).
  - Helpers can have a type (machine, eletrical, etc) so status can affect it.
 
